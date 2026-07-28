@@ -2,11 +2,19 @@
    BLOOM STUDIO - RESPONSIVE BREAKPOINTS (LUXURY ARCHITECTURAL LAYOUTS)
    ========================================================================== */
 
+/* Large Screens & Laptops (Max 1200px) */
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 1.75rem;
+  }
+}
+
 /* Laptop & Large Tablets (Max 1024px) */
 @media (max-width: 1024px) {
   .nav-links {
     display: none;
   }
+
 
   .mobile-toggle {
     display: block;
