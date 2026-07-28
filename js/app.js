@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFirstVisitInfo();
   initContactForm();
   initModals();
+  initGlobalButtonListeners();
   initScrollAnimations();
 });
 
@@ -104,6 +105,28 @@ function renderMassageCatalog() {
   }
 }
 
+/* Global Button Interactivity Handler */
+function initGlobalButtonListeners() {
+  document.addEventListener("click", (e) => {
+    // Massage booking buttons -> Opens direct WhatsApp to Eva
+    const massageBtn = e.target.closest("[data-book-massage]");
+    if (massageBtn) {
+      const treatmentName = massageBtn.getAttribute("data-book-massage");
+      const encodedMsg = encodeURIComponent(`Bună Eva! Doresc să mă programez la: ${treatmentName} în cadrul Bloom Studio Cluj.`);
+      window.open(`https://wa.me/40744229230?text=${encodedMsg}`, "_blank");
+    }
+
+    // Pricing plan buttons -> Scrolls to booking section
+    const planBtn = e.target.closest("[data-book-plan]");
+    if (planBtn) {
+      const bookingWidget = document.getElementById("booking-section");
+      if (bookingWidget) {
+        bookingWidget.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  });
+}
+
 /* Dynamic Pricing Cards Rendering */
 function renderPricingCards() {
   const container = document.getElementById("pricing-cards-container");
@@ -159,7 +182,7 @@ function renderInstructors() {
         <p class="instructor-bio">${inst.bio}</p>
         <div style="margin-top: 1rem;">
           <a href="https://wa.me/40744229230" target="_blank" class="btn btn-outline" style="font-size: 0.8125rem; padding: 0.5rem 1rem;">
-            WhatsApp: ${inst.phoneDirect}
+            WhatsApp Direct: ${inst.phoneDirect}
           </a>
         </div>
       </div>
@@ -245,7 +268,7 @@ function renderFirstVisitInfo() {
   `).join('');
 }
 
-/* Contact Form Validation */
+/* Contact Form Handler */
 function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
@@ -266,9 +289,18 @@ function initContactForm() {
       return;
     }
 
+    // Direct WhatsApp / Email Action Fallback
+    const whatsappMsg = encodeURIComponent(`Mesaj de pe site de la ${name} (${email}): ${message}`);
+    const whatsappUrl = `https://wa.me/40744229230?text=${whatsappMsg}`;
+
     if (responseBox) {
       responseBox.className = "form-response success";
-      responseBox.textContent = "Mesajul dumneavoastră a fost trimis! Eva / echipa Bloom vă va contacta în curând.";
+      responseBox.innerHTML = `
+        Vă mulțumim, ${name}! Puteți trimite mesajul direct pe WhatsApp colegei noastre Eva:<br />
+        <a href="${whatsappUrl}" target="_blank" class="btn btn-dark btn-sm" style="margin-top: 0.5rem; display: inline-flex;">
+          Deschide WhatsApp (0744 229 230)
+        </a>
+      `;
     }
 
     form.reset();
