@@ -1,6 +1,5 @@
 /**
  * Bloom Studio - Main Application Logic & UI Interactions
- * Updated with official Massage Catalog renderer & Instagram feed data
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -97,7 +96,7 @@ function renderMassageCatalog() {
         <h4 class="package-title">${pkg.name}</h4>
         <div class="package-price">${pkg.price}</div>
         <p class="package-desc">${pkg.desc}</p>
-        <button class="btn btn-dark" data-book-massage="${pkg.name}">
+        <button class="btn btn-terracotta" data-book-massage="${pkg.name}">
           Programează Pachetul
         </button>
       </div>
