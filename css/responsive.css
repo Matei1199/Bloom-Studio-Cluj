@@ -8,12 +8,37 @@
   align-items: center;
   gap: 1rem;
   margin-left: auto;
+  flex-shrink: 0;
 }
 
-/* Large Screens & Laptops (Max 1200px) */
-@media (max-width: 1200px) {
+/* Extra Large Screens to Medium Laptops (Max 1400px) */
+@media (max-width: 1400px) {
+  .nav-container {
+    gap: 1rem;
+    padding: 0 1.5rem;
+  }
   .nav-links {
-    gap: 1.5rem;
+    gap: 1.15rem;
+  }
+  .nav-links a {
+    font-size: 0.825rem;
+  }
+  .nav-cta-btn {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.84rem;
+  }
+}
+
+/* Medium Laptops & Small Desktops (Max 1240px) */
+@media (max-width: 1240px) {
+  .nav-links {
+    gap: 0.85rem;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+  .logo-text {
+    font-size: 1.5rem;
   }
   .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -23,8 +48,8 @@
   }
 }
 
-/* Laptop & Tablets (Max 1024px) */
-@media (max-width: 1024px) {
+/* Tablet & Mobile Switch Point (Max 1100px) */
+@media (max-width: 1100px) {
   .nav-links {
     display: none !important;
   }
