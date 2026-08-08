@@ -1,14 +1,14 @@
 /* ==========================================================================
-   BLOOM STUDIO - HIGH-END SAGE & TERRACOTTA LUXURY DESIGN SYSTEM
+   BLOOM STUDIO - EDITORIAL LUXURY DESIGN SYSTEM (WARM SAGE & TERRACOTTA)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 
 :root {
   /* Rich Brand Palette (Extracted directly from Studio Interior Photo) */
   --primary-sage: #596849;         /* Signature Deep Olive Sage Green */
   --sage-dark: #35412B;            /* Deep Forest Green for dark accents & buttons */
-  --sage-hover: #48553A;           /* Deeper Sage for hover states */
+  --sage-hover: #455238;           /* Deeper Sage for hover states */
   --sage-light: #EBF1E5;          /* Soft Organic Sage Tint */
   --sage-subtle: #F2F6ED;         /* Ultra-soft Sage Background */
 
@@ -19,14 +19,18 @@
   --gold-champagne: #D4B785;       /* Backlit Arch Glow & Metallic Accent */
   --gold-light: #F9F5EC;           /* Warm Golden Warm White */
 
+  /* Subtle Warm Tonal Background System (No pure harsh white feel) */
   --bg-primary: #FAF7F2;           /* Venetian Plaster Warm White */
-  --bg-secondary: #F3EFE7;         /* Soft Sand Neutral Background */
-  --bg-card: #FFFFFF;              /* Crisp White Card Background */
+  --bg-warm-white: #FAF8F6;        /* Subtly Warm Background */
+  --bg-ivory: #F8F5F1;             /* Warm Ivory Section Tone */
+  --bg-cream: #F5F1EC;             /* Soft Cream Section Tone */
+  --bg-linen: #FBFAF8;             /* Subtle Linen Tone */
+  --bg-card: #FFFFFF;              /* Pure White for tactile card contrast */
 
   --text-main: #20241B;             /* Deep Charcoal Forest Text */
   --text-muted: #636B5C;            /* Earthy Muted Green-Gray */
   --text-light: #8E9687;            /* Soft Subtler Neutral Text */
-  --border-light: #E5DFD5;          /* Warm Earthy Border Tint */
+  --border-light: #EAE4DC;          /* Warm Subtle Border Tint */
   --border-sage: #C8D4BF;           /* Sage Tinted Border */
 
   /* Typography */
@@ -36,32 +40,30 @@
   /* Spacing Scale */
   --spacing-xs: 0.5rem;    /* 8px */
   --spacing-sm: 1rem;      /* 16px */
-  --spacing-md: 1.75rem;   /* 28px */
-  --spacing-lg: 3.25rem;   /* 52px */
-  --spacing-xl: 5.5rem;    /* 88px */
-  --spacing-2xl: 9rem;     /* 144px */
+  --spacing-md: 2rem;      /* 32px */
+  --spacing-lg: 3.5rem;    /* 56px */
+  --spacing-xl: 6rem;      /* 96px */
+  --spacing-2xl: 9.5rem;   /* 152px */
 
-  /* Border Radius & Architectural Arches */
-  --radius-sm: 10px;
-  --radius-md: 20px;
-  --radius-lg: 32px;
+  /* Border Radius & Architectural Forms */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-pill: 9999px;
-  --radius-arch: 240px 240px 24px 24px; /* Architectural Archway Window shape */
+  --radius-arch: 200px 200px 16px 16px;
 
-  /* High-End Elevation & Backlit Glows */
-  --shadow-subtle: 0 6px 24px rgba(32, 36, 27, 0.04);
-  --shadow-hover: 0 16px 40px rgba(53, 65, 43, 0.12);
-  --shadow-arch-glow: 0 20px 50px rgba(89, 104, 73, 0.15), 0 0 35px rgba(212, 183, 133, 0.25);
-  --shadow-terracotta: 0 12px 32px rgba(184, 117, 84, 0.2);
+  /* Subtle Elevation & Soft Glows */
+  --shadow-subtle: 0 4px 20px rgba(32, 36, 27, 0.03);
+  --shadow-hover: 0 12px 32px rgba(53, 65, 43, 0.08);
+  --shadow-arch-glow: 0 16px 40px rgba(89, 104, 73, 0.12);
 
   /* High-Performance Motion Curves */
   --transition-fast: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
   --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* Layout Widths */
   --container-max: 1280px;
-  --container-narrow: 860px;
+  --container-narrow: 840px;
 }
 
 /* Base Reset & Smooth Scroll */
@@ -88,7 +90,7 @@ body {
 
 /* Custom High-End Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -96,37 +98,37 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-sage);
+  background: #B2BDAB;
   border-radius: var(--radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--sage-dark);
+  background: var(--primary-sage);
 }
 
 /* Typography Hierarchy */
 h1, h2, h3, h4, .font-serif {
   font-family: var(--font-heading);
-  font-weight: 500;
-  line-height: 1.12;
+  font-weight: 400;
+  line-height: 1.15;
   color: var(--text-main);
   letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: clamp(2.85rem, 5.2vw, 4.85rem);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
 }
 
 h2 {
-  font-size: clamp(2.1rem, 3.8vw, 3.4rem);
+  font-size: clamp(2.1rem, 3.8vw, 3.5rem);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 2.3vw, 2.25rem);
+  font-size: clamp(1.5rem, 2.3vw, 2.2rem);
 }
 
 h4 {
-  font-size: clamp(1.25rem, 1.7vw, 1.55rem);
+  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
 }
 
 p {
@@ -164,54 +166,62 @@ button, input, select, textarea {
   padding: var(--spacing-xl) 0;
 }
 
+/* Minimal Editorial Section Headers */
 .section-header {
   text-align: center;
-  max-width: 720px;
+  max-width: 700px;
   margin: 0 auto var(--spacing-lg);
 }
 
-.section-header .subtitle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.eyebrow-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  font-size: 0.8125rem;
-  letter-spacing: 0.22em;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-sage);
   margin-bottom: 0.75rem;
-  background-color: var(--sage-light);
-  padding: 0.35rem 1rem;
-  border-radius: var(--radius-pill);
 }
 
 .section-header h2 {
   margin-bottom: var(--spacing-xs);
 }
 
+/* Subtle Gradient Section Backgrounds for Tonal Flow */
+.bg-warm-white {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-warm-white) 100%);
+}
+
+.bg-ivory {
+  background: linear-gradient(180deg, var(--bg-warm-white) 0%, var(--bg-ivory) 100%);
+}
+
+.bg-cream {
+  background: linear-gradient(180deg, var(--bg-ivory) 0%, var(--bg-cream) 100%);
+}
+
+.bg-linen {
+  background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-linen) 100%);
+}
+
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+/* Decorative Divider Rule */
+.editorial-divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--terracotta);
+  margin: 1.5rem auto;
+  opacity: 0.6;
+}
+
 /* High-End Motion & Animations */
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(0.5deg);
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 20px 50px rgba(89, 104, 73, 0.15), 0 0 30px rgba(212, 183, 133, 0.2);
-  }
-  50% {
-    box-shadow: 0 24px 60px rgba(89, 104, 73, 0.25), 0 0 50px rgba(212, 183, 133, 0.4);
-  }
-}
-
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-on-scroll.revealed {
@@ -219,22 +229,11 @@ button, input, select, textarea {
   transform: translateY(0);
 }
 
-/* Architectural Arch Window Frame */
-.arch-window {
-  border-radius: var(--radius-arch);
-  overflow: hidden;
-  position: relative;
-  box-shadow: var(--shadow-arch-glow);
-  animation: pulseGlow 8s ease-in-out infinite;
-}
-
-.arch-window img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.arch-window:hover img {
-  transform: scale(1.05);
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

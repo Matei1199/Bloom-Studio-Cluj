@@ -1,5 +1,6 @@
 /**
  * Bloom Studio - Main Application Logic & UI Interactions
+ * Updated for Bloom Studio Editorial Redesign
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -7,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   renderMassageCatalog();
   renderPricingCards();
+  renderPriceLockBanner();
   renderInstructors();
   renderFAQs();
   renderTestimonials();
@@ -69,7 +71,7 @@ function renderMassageCatalog() {
 
   const catalog = window.BLOOM_CONFIG.massageCatalog;
 
-  // Individual Treatments
+  // Individual Treatments (No phone inside individual cards, elegant neutral CTA)
   if (containerInd) {
     containerInd.innerHTML = catalog.individualServices.map(item => `
       <div class="massage-treatment-card">
@@ -78,12 +80,11 @@ function renderMassageCatalog() {
           <span class="massage-price-tag">${item.price}</span>
         </div>
         <div class="massage-card-meta">
-          <span class="massage-duration">⏱ ${item.duration}</span>
-          <span class="massage-therapist">Colega noastră: Eva (${catalog.phone})</span>
+          <span>⏱ ${item.duration}</span>
         </div>
         <p class="massage-card-desc">${item.desc}</p>
-        <button class="btn btn-outline btn-sm" data-book-massage="${item.name}">
-          Programează la Eva
+        <button class="btn btn-secondary btn-sm" data-discover-massage="${item.name}">
+          Descoperă serviciul
         </button>
       </div>
     `).join('');
@@ -97,22 +98,53 @@ function renderMassageCatalog() {
         <h4 class="package-title">${pkg.name}</h4>
         <div class="package-price">${pkg.price}</div>
         <p class="package-desc">${pkg.desc}</p>
-        <button class="btn btn-terracotta" data-book-massage="${pkg.name}">
-          Programează Pachetul
+        <button class="btn btn-terracotta btn-sm" data-book-massage="${pkg.name}">
+          Rezervă Pachetul
         </button>
       </div>
     `).join('');
   }
 }
 
+/* Render 6-Month Price Retention Banner */
+function renderPriceLockBanner() {
+  const container = document.getElementById("price-lock-container");
+  if (!container || !window.BLOOM_CONFIG || !window.BLOOM_CONFIG.priceLockRule) return;
+
+  const rule = window.BLOOM_CONFIG.priceLockRule;
+  if (!rule.enabled) return;
+
+  container.innerHTML = `
+    <div class="price-lock-banner">
+      <div class="price-lock-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div class="price-lock-text">
+        <strong>${rule.title}</strong>
+        <p>${rule.description}</p>
+      </div>
+    </div>
+  `;
+}
+
 /* Global Button Interactivity Handler */
 function initGlobalButtonListeners() {
   document.addEventListener("click", (e) => {
-    // Massage booking buttons -> Opens direct WhatsApp to Eva
-    const massageBtn = e.target.closest("[data-book-massage]");
-    if (massageBtn) {
-      const treatmentName = massageBtn.getAttribute("data-book-massage");
-      const encodedMsg = encodeURIComponent(`Bună Eva! Doresc să mă programez la: ${treatmentName} în cadrul Bloom Studio Cluj.`);
+    // Individual Massage discover button -> Scrolls to booking widget with pre-selected massage
+    const discoverBtn = e.target.closest("[data-discover-massage]");
+    if (discoverBtn) {
+      const treatmentName = discoverBtn.getAttribute("data-discover-massage");
+      const bookingSection = document.getElementById("booking-section");
+      if (bookingSection) {
+        bookingSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    // Massage package booking buttons -> Opens direct WhatsApp to Eva (0744 229 230)
+    const massagePkgBtn = e.target.closest("[data-book-massage]");
+    if (massagePkgBtn) {
+      const packageName = massagePkgBtn.getAttribute("data-book-massage");
+      const encodedMsg = encodeURIComponent(`Bună Eva! Doresc să mă programez la: ${packageName} la Bloom Studio.`);
       window.open(`https://wa.me/40744229230?text=${encodedMsg}`, "_blank");
     }
 
@@ -148,13 +180,13 @@ function renderPricingCards() {
       <ul class="pricing-features">
         ${plan.features.map(f => `
           <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             <span>${f}</span>
           </li>
         `).join('')}
       </ul>
       <div class="pricing-footer">
-        <button class="btn ${plan.featured ? 'btn-primary' : 'btn-outline'}" data-book-plan="${plan.id}">
+        <button class="btn ${plan.featured ? 'btn-primary' : 'btn-secondary'}" style="width: 100%;" data-book-plan="${plan.id}">
           ${plan.buttonText}
         </button>
       </div>
@@ -180,9 +212,9 @@ function renderInstructors() {
         <h3 class="instructor-name">${inst.name}</h3>
         <p class="instructor-role">${inst.role}</p>
         <p class="instructor-bio">${inst.bio}</p>
-        <div style="margin-top: 1rem;">
-          <a href="https://wa.me/40744229230" target="_blank" class="btn btn-outline" style="font-size: 0.8125rem; padding: 0.5rem 1rem;">
-            WhatsApp Direct: ${inst.phoneDirect}
+        <div style="margin-top: 1.25rem;">
+          <a href="tel:${inst.phoneDirect.replace(/\s+/g, '')}" class="btn btn-secondary btn-sm">
+            Contact: ${inst.phoneDirect}
           </a>
         </div>
       </div>
@@ -240,7 +272,7 @@ function renderTestimonials() {
     <div class="testimonial-card">
       <div class="testimonial-rating">
         <span class="stars">★★★★★</span>
-        <span class="verified-badge">[Client Verificat Mărăști]</span>
+        <span class="verified-badge">Client Bloom Studio</span>
       </div>
       <div class="testimonial-highlight">"${t.highlight}"</div>
       <p class="testimonial-quote">${t.quote}</p>
@@ -289,16 +321,16 @@ function initContactForm() {
       return;
     }
 
-    // Direct WhatsApp / Email Action Fallback
+    // Direct WhatsApp to Studio Main Line (0724 486 216)
     const whatsappMsg = encodeURIComponent(`Mesaj de pe site de la ${name} (${email}): ${message}`);
-    const whatsappUrl = `https://wa.me/40744229230?text=${whatsappMsg}`;
+    const whatsappUrl = `https://wa.me/40724486216?text=${whatsappMsg}`;
 
     if (responseBox) {
       responseBox.className = "form-response success";
       responseBox.innerHTML = `
-        Vă mulțumim, ${name}! Puteți trimite mesajul direct pe WhatsApp colegei noastre Eva:<br />
-        <a href="${whatsappUrl}" target="_blank" class="btn btn-dark btn-sm" style="margin-top: 0.5rem; display: inline-flex;">
-          Deschide WhatsApp (0744 229 230)
+        Vă mulțumim, ${name}! Puteți trimite mesajul direct pe WhatsApp la studioul nostru:<br />
+        <a href="${whatsappUrl}" target="_blank" class="btn btn-primary btn-sm" style="margin-top: 0.5rem; display: inline-flex;">
+          Deschide WhatsApp (0724 486 216)
         </a>
       `;
     }
@@ -344,7 +376,7 @@ function initScrollAnimations() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
 
   animatedElements.forEach(el => observer.observe(el));
 }

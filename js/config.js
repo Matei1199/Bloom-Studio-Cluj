@@ -1,6 +1,6 @@
 /**
  * Bloom Studio - Central Configuration & Content Database
- * Updated with official data from @bloompilatescluj (Mărăști, Cluj-Napoca)
+ * Updated for Bloom Studio (Strada Aurel Vlaicu nr. 184, Cluj-Napoca)
  */
 
 const BLOOM_CONFIG = {
@@ -8,13 +8,13 @@ const BLOOM_CONFIG = {
     name: "Bloom Studio",
     tagline: "Move Better. Feel Better. Bloom Every Day.",
     city: "Cluj-Napoca",
-    neighborhood: "Mărăști",
     region: "Cluj",
     country: "Romania",
     // Official Business Information
-    address: "Cartier Mărăști, Cluj-Napoca, Romania",
-    phone: "0744 229 230",
-    phoneDisplay: "0744 229 230 (Eva - Masaj) / Studio",
+    address: "Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca",
+    phone: "0724 486 216",
+    phoneTel: "tel:+40724486216",
+    phoneDisplay: "0724 486 216",
     email: "contact@bloompilatescluj.ro",
     instagramHandle: "@bloompilatescluj",
     instagramUrl: "https://www.instagram.com/bloompilatescluj/",
@@ -23,18 +23,24 @@ const BLOOM_CONFIG = {
       saturday: "09:00 - 15:00",
       sunday: "La cerere / Ședințe private"
     },
-    googleMapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43702.48378772396!2d23.54129525!3d46.7712101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490c1f916c0b47%3A0x22384a7e937d1656!2sCluj-Napoca!5e0!3m2!1sen!2sro!4v1700000000000!5m2!1sen!2sro",
+    googleMapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.123!2d23.6300!3d46.7785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490c3a2a67e8a9%3A0x0!2zU3RyYWRhIEF1cmVsIFZsYWljdSAxODQsIENsdWotTmFwb2Nh!5e0!3m2!1sen!2sro!4v1700000000000!5m2!1sen!2sro",
     // Target SEO Keywords
     seoKeywords: [
       "Pilates Cluj", 
       "Pilates Reformer Cluj", 
       "Pilates Studio Cluj", 
       "Masaj Cluj", 
-      "Masaj Mărăști", 
       "Masaj Relaxare Cluj", 
       "Drenaj Limfatic Cluj", 
       "Masaj Anticelulitic Cluj"
     ]
+  },
+
+  // 6-Month Price Retention Rule
+  priceLockRule: {
+    enabled: true,
+    title: "Preț blocat timp de 6 luni",
+    description: "Dacă îți faci abonamentul în prima lună, beneficiezi de același preț pentru următoarele 6 luni."
   },
 
   // Main Studio Services (Pilates & Massage Overview)
@@ -44,7 +50,7 @@ const BLOOM_CONFIG = {
       title: "Pilates Reformer Cluj",
       subtitle: "Echipament Allegro 2 • Max 6 Persoane",
       shortDesc: "Antrenament pe aparate Reformer de ultimă generație pentru alungirea și tonifierea musculaturii fără impact asupra articulațiilor.",
-      fullDesc: "Sesiunile noastre de Reformer din Mărăști, Cluj-Napoca combină aliniamentul postural cu stabilitatea abdominală profundă. Cu maxim 6 persoane pe clasă, instructorii noștri oferă ajustări individuale pentru rezultate optime.",
+      fullDesc: "Sesiunile noastre de Reformer din Cluj-Napoca combină aliniamentul postural cu stabilitatea abdominală profundă. Cu maxim 6 persoane pe clasă, instructorii noștri oferă ajustări individuale pentru rezultate optime.",
       features: [
         "Maxim 6 participante per clasă",
         "Aparate Balanced Body Allegro 2",
@@ -53,7 +59,7 @@ const BLOOM_CONFIG = {
       ],
       duration: "50 Min",
       tag: "Recomandat",
-      image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=85"
+      image: "assets/images/studio-reformer-arches.jpg"
     },
     {
       id: "mat-flow",
@@ -68,7 +74,7 @@ const BLOOM_CONFIG = {
       ],
       duration: "50 Min",
       tag: "Esențial",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85"
+      image: "assets/images/studio-mat-room.jpg"
     },
     {
       id: "massage-full-menu",
@@ -86,7 +92,7 @@ const BLOOM_CONFIG = {
       ],
       duration: "30 - 60 Min",
       tag: "Colecția Masaj",
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85"
+      image: "assets/images/studio-lounge.jpg"
     }
   ],
 
@@ -94,6 +100,8 @@ const BLOOM_CONFIG = {
   massageCatalog: {
     therapist: "Eva",
     phone: "0744 229 230",
+    phoneTel: "tel:+40744229230",
+    introText: "Colega noastră, Eva (0744 229 230), te așteaptă cu drag într-un spațiu liniștit dedicat stării tale de bine.",
     individualServices: [
       {
         name: "Masaj de Relaxare",
@@ -251,7 +259,7 @@ const BLOOM_CONFIG = {
       role: "Specialist Terapii prin Masaj & Recuperare",
       certification: "Tehnician Maseur Acreditat • Masaj Terapeutic & Limfatic",
       bio: "Eva te așteaptă în camera de masaj de la Bloom Studio cu tratamente de relaxare, drenaj limfatic brazilian, masaj anticelulitic cu bambus, decontractare musculară și masaj facial.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=85",
+      image: "assets/images/studio-lounge.jpg",
       social: "@bloompilatescluj",
       phoneDirect: "0744 229 230"
     },
@@ -260,16 +268,16 @@ const BLOOM_CONFIG = {
       role: "Instructori Certificați Reformer & Mat",
       certification: "Acreditați Balanced Body® & Posture Specialists",
       bio: "Echipa noastră de instructori este dedicată aliniamentului corect, siguranței mișcării și atenției individuale în grupele restrânse de maxim 6 persoane.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=85",
+      image: "assets/images/studio-reformer-arches.jpg",
       social: "@bloompilatescluj",
-      phoneDirect: "0744 229 230"
+      phoneDirect: "0724 486 216"
     }
   ],
 
   // Authentic Testimonial Markers
   testimonials: [
     {
-      clientName: "Clientă Bloom Studio Mărăști",
+      clientName: "Clientă Bloom Studio",
       membership: "Membru Abonament 8 Ședințe",
       quote: "Atmosfera din studio este extrem de relaxantă. După 1 lună de Reformer Pilates și masajul decontractant de la Eva, durerile mele de spate au dispărut complet.",
       highlight: "Fără dureri de spate după orele de birou"
@@ -304,7 +312,7 @@ const BLOOM_CONFIG = {
     },
     {
       title: "Locație & Programări",
-      text: "Suntem situați în cartierul Mărăști, Cluj-Napoca. Programările se pot face online pe site sau direct prin WhatsApp la 0744 229 230 (Eva)."
+      text: "Suntem situați pe Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca. Programările se pot face online pe site sau telefonic la 0724 486 216."
     }
   ],
 
@@ -324,22 +332,22 @@ const BLOOM_CONFIG = {
     },
     {
       question: "Unde este situat studioul Bloom în Cluj-Napoca?",
-      answer: "Studioul nostru este situat în cartierul Mărăști, într-o zonă ușor accesibilă cu mijloace de transport în comun sau mașină personală."
+      answer: "Studioul nostru este situat pe Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca, într-o zonă ușor accesibilă."
     }
   ],
 
   // Local SEO Blog Posts
   blogPosts: [
     {
-      id: "masaj-marasti-cluj-ghid",
+      id: "masaj-cluj-ghid",
       category: "Masaj & Terapie",
-      title: "Masaj în Cluj-Napoca (Mărăști): Descoperă Serviciile și Pachetele Promoționale la Bloom Studio",
+      title: "Masaj în Cluj-Napoca: Descoperă Serviciile și Pachetele Promoționale la Bloom Studio",
       excerpt: "De la masajul de relaxare și drenajul limfatic brazilian până la masajul facial și decontractant cu Eva. Află beneficiile pentru corpul tău.",
-      date: "Iulie 2026",
+      date: "August 2026",
       readTime: "4 min lectură",
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=85",
+      image: "assets/images/studio-lounge.jpg",
       content: `
-        <p>Uneori, cel mai bun lucru pe care îl poți face pentru corpul tău este să îi oferi o oră de pauză. De acum, te poți programa la masaj în cadrul studioului nostru Bloom Studio din cartierul Mărăști, Cluj-Napoca!</p>
+        <p>Uneori, cel mai bun lucru pe care îl poți face pentru corpul tău este să îi oferi o oră de pauză. De acum, te poți programa la masaj în cadrul studioului nostru Bloom Studio din Cluj-Napoca!</p>
         <p>Colega noastră, <strong>Eva (0744 229 230)</strong>, te așteaptă într-un spațiu liniștit, dedicat stării tale de bine. Iată lista completă a serviciilor disponibile:</p>
         <ul>
           <li><strong>Masaj de Relaxare (60 min - 150 RON):</strong> Ideal pentru reducerea stresului după o zi lungă.</li>
@@ -354,15 +362,15 @@ const BLOOM_CONFIG = {
       `
     },
     {
-      id: "reformer-pilates-cluj-marasti",
+      id: "reformer-pilates-cluj",
       category: "Reformer Pilates",
-      title: "Reformer Pilates Cluj (Mărăști): De Ce Grupele de Maxim 6 Persoane Fac Diferența",
+      title: "Reformer Pilates Cluj: De Ce Grupele de Maxim 6 Persoane Fac Diferența",
       excerpt: "Descoperă antrenamentele pe aparate Allegro 2 la Bloom Studio. Corectează postura și întărește-ți abdomenul profund.",
-      date: "Iulie 2026",
+      date: "August 2026",
       readTime: "5 min lectură",
-      image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=85",
+      image: "assets/images/studio-reformer-arches.jpg",
       content: `
-        <p>Antrenamentul pe Reformer Pilates la Bloom Studio Cluj combină alungirea musculară cu forța de bază. În spațiul nostru din Mărăști, am limitat numărul de participante la maxim 6 persoane pe clasă pentru ca fiecare exercițiu să fie executat cu precizie maximă.</p>
+        <p>Antrenamentul pe Reformer Pilates la Bloom Studio Cluj combină alungirea musculară cu forța de bază. În spațiul nostru de pe Strada Aurel Vlaicu nr. 184, am limitat numărul de participante la maxim 6 persoane pe clasă pentru ca fiecare exercițiu să fie executat cu precizie maximă.</p>
         <p>Îmbină orele de Reformer cu o sesiune de masaj decontractant pentru refacere musculară completă!</p>
       `
     }

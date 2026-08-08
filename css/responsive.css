@@ -1,11 +1,17 @@
 /* ==========================================================================
-   BLOOM STUDIO - RESPONSIVE BREAKPOINTS (LUXURY ARCHITECTURAL LAYOUTS)
+   BLOOM STUDIO - RESPONSIVE BREAKPOINTS (ART-DIRECTED EDITORIAL MOBILE)
    ========================================================================== */
 
 /* Large Screens & Laptops (Max 1200px) */
 @media (max-width: 1200px) {
   .nav-links {
     gap: 1.75rem;
+  }
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -15,46 +21,39 @@
     display: none;
   }
 
-
   .mobile-toggle {
     display: block;
   }
 
-  .hero-grid, .about-grid, .contact-grid {
+  .hero-bg-layered {
+    width: 100%;
+    opacity: 0.65;
+  }
+
+  .hero-bg-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 247, 242, 0.85) 0%,
+      rgba(250, 247, 242, 0.6) 40%,
+      rgba(250, 247, 242, 0.95) 100%
+    );
+  }
+
+  .about-grid, .contact-grid {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
   }
 
   .hero-content {
     max-width: 100%;
-    text-align: center;
   }
 
-  .hero-badge, .hero-actions, .hero-trust-list {
-    justify-content: center;
-  }
-
-  .hero-floating-card {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 1.5rem;
-    animation: none;
-  }
-
-  .why-grid, .instructors-grid, .testimonials-grid, .blog-posts-grid, .first-visit-grid, .massage-grid {
+  .why-grid, .instructors-grid, .testimonials-grid, .first-visit-grid, .massage-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .services-grid {
     grid-template-columns: 1fr;
-  }
-
-  .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .pricing-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .gallery-grid {
@@ -63,17 +62,65 @@
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 2.75rem;
+    gap: 2.5rem;
   }
 }
 
 /* Mobile Devices & Small Tablets (Max 768px) */
 @media (max-width: 768px) {
   .section-padding {
-    padding: 3.75rem 0;
+    padding: 3.5rem 0;
   }
 
-  .why-grid, .instructors-grid, .testimonials-grid, .blog-posts-grid, .first-visit-grid, .pricing-grid, .massage-grid {
+  /* Art-directed Mobile Hero: Immersive photograph with overlay text */
+  .hero {
+    min-height: 85vh;
+    padding-top: 110px;
+    padding-bottom: 60px;
+  }
+
+  .hero-bg-layered {
+    width: 100%;
+    opacity: 0.75;
+  }
+
+  .hero-bg-layered img {
+    object-position: 70% center;
+  }
+
+  .hero-bg-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 247, 242, 0.7) 0%,
+      rgba(250, 247, 242, 0.5) 30%,
+      rgba(250, 247, 242, 0.95) 85%,
+      var(--bg-primary) 100%
+    );
+  }
+
+  .hero-content {
+    text-align: left;
+    padding: 1rem 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-trust-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .why-grid, .instructors-grid, .testimonials-grid, .first-visit-grid, .pricing-grid, .massage-grid {
     grid-template-columns: 1fr;
   }
 
@@ -85,16 +132,23 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero-image-wrap {
-    height: 440px;
+  .about-img-wrap {
+    height: 360px;
   }
 
-  .about-img-wrap {
-    height: 400px;
+  .about-philosophy-list {
+    grid-template-columns: 1fr;
+  }
+
+  .price-lock-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
   }
 
   .booking-section {
-    padding: 2.25rem 1.35rem;
+    padding: 2rem 1.25rem;
   }
 
   .booking-services-grid, .booking-form-grid {
@@ -102,7 +156,7 @@
   }
 
   .booking-wizard-steps {
-    gap: 0.85rem;
+    gap: 0.75rem;
   }
 
   .step-label {
@@ -115,7 +169,7 @@
 
   .footer-bottom {
     flex-direction: column;
-    gap: 1.15rem;
+    gap: 1rem;
     text-align: center;
   }
 }
@@ -126,21 +180,12 @@
     grid-template-columns: 1fr;
   }
 
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero-actions .btn {
-    width: 100%;
-  }
-
   .contact-form-card {
-    padding: 2.25rem 1.35rem;
+    padding: 2rem 1.25rem;
   }
 
   .modal-container {
-    padding: 2.25rem 1.35rem;
+    padding: 2rem 1.25rem;
     width: 95%;
   }
 }
