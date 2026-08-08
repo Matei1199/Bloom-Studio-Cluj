@@ -151,7 +151,6 @@ function renderMassageCatalog() {
 }
 
 /* Render Dynamic Studio Gallery (16 Photos) */
-let currentGalleryFilter = 'all';
 let currentLightboxIndex = 0;
 let activeGalleryItems = [];
 
@@ -160,49 +159,18 @@ function renderGallery() {
   if (!container || !window.BLOOM_CONFIG || !window.BLOOM_CONFIG.gallery) return;
 
   const items = window.BLOOM_CONFIG.gallery;
-  const categories = [
-    { id: 'all', label: 'Toate (16)' },
-    { id: 'reformer', label: 'Studio Reformer' },
-    { id: 'mat', label: 'Mat Pilates' },
-    { id: 'masaj', label: 'Camera Masaj' },
-    { id: 'lounge', label: 'Recepție & Lounge' },
-    { id: 'detalii', label: 'Atmosferă & Detalii' }
-  ];
+  activeGalleryItems = items;
 
-  const filterTabsHtml = `
-    <div class="gallery-filter-tabs">
-      ${categories.map(cat => `
-        <button class="gallery-filter-btn ${cat.id === currentGalleryFilter ? 'active' : ''}" data-gallery-filter="${cat.id}">
-          ${cat.label}
-        </button>
-      `).join('')}
-    </div>
-  `;
-
-  const filtered = currentGalleryFilter === 'all' 
-    ? items 
-    : items.filter(item => item.category === currentGalleryFilter);
-
-  activeGalleryItems = filtered;
-
-  const gridCardsHtml = filtered.map((item, index) => `
+  const gridCardsHtml = items.map((item, index) => `
     <div class="gallery-card-item" data-lightbox-index="${index}">
-      <img src="${item.src}" alt="${item.caption || item.title}" loading="lazy" />
+      <img src="${item.src}" alt="${item.caption || item.title || 'Bloom Studio Cluj'}" loading="lazy" />
       <div class="gallery-card-overlay">
-        <span class="gallery-card-category">${getCategoryLabel(item.category)}</span>
-        <h4 class="gallery-card-title">${item.title}</h4>
+        <h4 class="gallery-card-title">${item.title || 'Bloom Studio'}</h4>
       </div>
     </div>
   `).join('');
 
-  container.innerHTML = `${filterTabsHtml}<div class="gallery-grid-dynamic">${gridCardsHtml}</div>`;
-
-  container.querySelectorAll(".gallery-filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      currentGalleryFilter = btn.getAttribute("data-gallery-filter");
-      renderGallery();
-    });
-  });
+  container.innerHTML = `<div class="gallery-grid-dynamic">${gridCardsHtml}</div>`;
 
   container.querySelectorAll(".gallery-card-item").forEach(card => {
     card.addEventListener("click", () => {
@@ -210,17 +178,6 @@ function renderGallery() {
       openLightbox(idx);
     });
   });
-}
-
-function getCategoryLabel(catId) {
-  const map = {
-    reformer: 'Studio Reformer',
-    mat: 'Mat Pilates',
-    masaj: 'Camera Masaj',
-    lounge: 'Recepție & Lounge',
-    detalii: 'Atmosferă'
-  };
-  return map[catId] || 'Studio';
 }
 
 function openLightbox(index) {
