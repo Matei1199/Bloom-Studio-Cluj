@@ -245,7 +245,7 @@ const BLOOM_CONFIG = {
   ],
 
   gallery: [
-    { id: 1, src: "assets/images/gallery/bloom-gallery-1.jpg", category: "reformer", title: "Aparate Reformer Allegro 2", caption: "Sala principală de Reformer Pilates Bloom Studio Cluj" },
+    { id: 1, src: "assets/images/gallery/bloom-gallery-1.jpg", category: "reformer", title: "Aparate Reformer Alpha", caption: "Sala principală de Reformer Pilates Bloom Studio Cluj" },
     { id: 2, src: "assets/images/gallery/bloom-gallery-2.jpg", category: "lounge", title: "Zona de Recepție & Relaxare", caption: "Zona de acces și lounge pentru cliente" },
     { id: 3, src: "assets/images/gallery/bloom-gallery-3.jpg", category: "mat", title: "Sala Mat Pilates", caption: "Echipamente și accesorii pentru exerciții la saltea" },
     { id: 4, src: "assets/images/gallery/bloom-gallery-4.jpg", category: "reformer", title: "Studio Reformer — Perspectivă Arcuri", caption: "Aparate profesionale Balanced Body®" },
