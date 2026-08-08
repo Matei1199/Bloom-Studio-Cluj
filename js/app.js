@@ -163,9 +163,9 @@ function renderGallery() {
 
   const gridCardsHtml = items.map((item, index) => `
     <div class="gallery-card-item" data-lightbox-index="${index}">
-      <img src="${item.src}" alt="${item.caption || item.title || 'Bloom Studio Cluj'}" loading="lazy" />
+      <img src="${item.src}" alt="Bloom Studio Cluj" loading="lazy" />
       <div class="gallery-card-overlay">
-        <h4 class="gallery-card-title">${item.title || 'Bloom Studio'}</h4>
+        <span class="gallery-zoom-icon">🔍</span>
       </div>
     </div>
   `).join('');
@@ -192,9 +192,9 @@ function openLightbox(index) {
   if (!lightbox || !lightboxImg) return;
 
   lightboxImg.src = item.src;
-  lightboxImg.alt = item.title;
+  lightboxImg.alt = "Bloom Studio Cluj";
   if (captionEl) {
-    captionEl.textContent = `${item.title} — ${currentLightboxIndex + 1} din ${activeGalleryItems.length}`;
+    captionEl.textContent = `${currentLightboxIndex + 1} din ${activeGalleryItems.length}`;
   }
 
   lightbox.classList.add("open");
