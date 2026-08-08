@@ -279,13 +279,12 @@
   overflow: hidden;
 }
 
-/* Layered Background Studio Photography (Full Width 100%) */
+/* Layered Background Studio Photography */
 .hero-bg-layered {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
-  width: 100%;
+  width: 62%;
   height: 100%;
   z-index: 1;
   overflow: hidden;
@@ -307,10 +306,10 @@
   height: 100%;
   background: linear-gradient(
     90deg, 
-    rgba(250, 247, 242, 0.94) 0%, 
-    rgba(250, 247, 242, 0.85) 45%, 
-    rgba(250, 247, 242, 0.35) 75%, 
-    rgba(250, 247, 242, 0.12) 100%
+    var(--bg-primary) 0%, 
+    rgba(250, 247, 242, 0.95) 38%, 
+    rgba(250, 247, 242, 0.4) 65%, 
+    rgba(250, 247, 242, 0.05) 100%
   );
   z-index: 2;
 }
