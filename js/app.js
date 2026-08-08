@@ -1,6 +1,6 @@
 /**
  * Bloom Studio - Main Application Logic & UI Interactions
- * Owner Requirements Integration Update
+ * Gallery Overhaul & Hero Heart Centering
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPriceLockBanner();
   renderMassageCatalog();
   renderInstructors();
+  renderGallery();
   renderFAQs();
   renderTestimonials();
   renderFirstVisitInfo();
@@ -58,12 +59,10 @@ function renderPricingTabs() {
     { id: "reformer", label: "Pilates Reformer", items: [{ data: p.reformerGrup, sub: "Grup (max 3)" }, { data: p.reformerDuo, sub: "Duo" }, { data: p.reformerIndividual, sub: "Individual" }] }
   ];
 
-  // Render tabs
   const tabsHtml = categories.map((cat, idx) => 
     `<button class="pricing-tab ${idx === 0 ? 'active' : ''}" data-pricing-tab="${cat.id}">${cat.label}</button>`
   ).join('');
 
-  // Render category panels
   const panelsHtml = categories.map((cat, idx) => {
     const subsections = cat.items.map(sub => {
       const cardsHtml = sub.data.sessions.map((s, si) => `
@@ -86,7 +85,6 @@ function renderPricingTabs() {
 
   container.innerHTML = `<div class="pricing-tabs">${tabsHtml}</div>${panelsHtml}`;
 
-  // Tab switching
   container.querySelectorAll(".pricing-tab").forEach(tab => {
     tab.addEventListener("click", () => {
       container.querySelectorAll(".pricing-tab").forEach(t => t.classList.remove("active"));
@@ -150,6 +148,131 @@ function renderMassageCatalog() {
       </div>
     `).join('');
   }
+}
+
+/* Render Dynamic Studio Gallery (16 Photos) */
+let currentGalleryFilter = 'all';
+let currentLightboxIndex = 0;
+let activeGalleryItems = [];
+
+function renderGallery() {
+  const container = document.getElementById("gallery-dynamic-container");
+  if (!container || !window.BLOOM_CONFIG || !window.BLOOM_CONFIG.gallery) return;
+
+  const items = window.BLOOM_CONFIG.gallery;
+  const categories = [
+    { id: 'all', label: 'Toate (16)' },
+    { id: 'reformer', label: 'Studio Reformer' },
+    { id: 'mat', label: 'Mat Pilates' },
+    { id: 'masaj', label: 'Camera Masaj' },
+    { id: 'lounge', label: 'Recepție & Lounge' },
+    { id: 'detalii', label: 'Atmosferă & Detalii' }
+  ];
+
+  const filterTabsHtml = `
+    <div class="gallery-filter-tabs">
+      ${categories.map(cat => `
+        <button class="gallery-filter-btn ${cat.id === currentGalleryFilter ? 'active' : ''}" data-gallery-filter="${cat.id}">
+          ${cat.label}
+        </button>
+      `).join('')}
+    </div>
+  `;
+
+  const filtered = currentGalleryFilter === 'all' 
+    ? items 
+    : items.filter(item => item.category === currentGalleryFilter);
+
+  activeGalleryItems = filtered;
+
+  const gridCardsHtml = filtered.map((item, index) => `
+    <div class="gallery-card-item" data-lightbox-index="${index}">
+      <img src="${item.src}" alt="${item.caption || item.title}" loading="lazy" />
+      <div class="gallery-card-overlay">
+        <span class="gallery-card-category">${getCategoryLabel(item.category)}</span>
+        <h4 class="gallery-card-title">${item.title}</h4>
+      </div>
+    </div>
+  `).join('');
+
+  container.innerHTML = `${filterTabsHtml}<div class="gallery-grid-dynamic">${gridCardsHtml}</div>`;
+
+  container.querySelectorAll(".gallery-filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentGalleryFilter = btn.getAttribute("data-gallery-filter");
+      renderGallery();
+    });
+  });
+
+  container.querySelectorAll(".gallery-card-item").forEach(card => {
+    card.addEventListener("click", () => {
+      const idx = parseInt(card.getAttribute("data-lightbox-index"), 10);
+      openLightbox(idx);
+    });
+  });
+}
+
+function getCategoryLabel(catId) {
+  const map = {
+    reformer: 'Studio Reformer',
+    mat: 'Mat Pilates',
+    masaj: 'Camera Masaj',
+    lounge: 'Recepție & Lounge',
+    detalii: 'Atmosferă'
+  };
+  return map[catId] || 'Studio';
+}
+
+function openLightbox(index) {
+  if (!activeGalleryItems || !activeGalleryItems.length) return;
+  currentLightboxIndex = (index + activeGalleryItems.length) % activeGalleryItems.length;
+  const item = activeGalleryItems[currentLightboxIndex];
+  
+  const lightbox = document.getElementById("gallery-lightbox");
+  const lightboxImg = document.getElementById("gallery-lightbox-img");
+  const captionEl = document.getElementById("gallery-lightbox-caption");
+
+  if (!lightbox || !lightboxImg) return;
+
+  lightboxImg.src = item.src;
+  lightboxImg.alt = item.title;
+  if (captionEl) {
+    captionEl.textContent = `${item.title} — ${currentLightboxIndex + 1} din ${activeGalleryItems.length}`;
+  }
+
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function initGalleryLightbox() {
+  const lightbox = document.getElementById("gallery-lightbox");
+  if (!lightbox) return;
+
+  const prevBtn = document.getElementById("lightbox-prev");
+  const nextBtn = document.getElementById("lightbox-next");
+  const closeBtn = document.getElementById("lightbox-close");
+
+  if (prevBtn) prevBtn.addEventListener("click", (e) => { e.stopPropagation(); openLightbox(currentLightboxIndex - 1); });
+  if (nextBtn) nextBtn.addEventListener("click", (e) => { e.stopPropagation(); openLightbox(currentLightboxIndex + 1); });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("open");
+    document.body.style.overflow = "";
+  };
+
+  if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") openLightbox(currentLightboxIndex - 1);
+    if (e.key === "ArrowRight") openLightbox(currentLightboxIndex + 1);
+  });
 }
 
 /* Global Button Interactivity Handler */
@@ -282,36 +405,12 @@ function initNewsletterForm() {
       if (responseBox) { responseBox.className = "form-response error"; responseBox.textContent = "Vă rugăm să introduceți o adresă de email validă."; }
       return;
     }
-    // Dispatch event for future Mailchimp/Brevo integration
     const event = new CustomEvent("bloomNewsletterSubscribed", { detail: { email: emailInput.value.trim() } });
     window.dispatchEvent(event);
     console.log("Newsletter subscription:", emailInput.value.trim());
     if (responseBox) { responseBox.className = "form-response success"; responseBox.textContent = "Mulțumim! Te-ai abonat cu succes la newsletter-ul Bloom Studio."; }
     form.reset();
   });
-}
-
-/* Gallery Lightbox */
-function initGalleryLightbox() {
-  const lightbox = document.getElementById("gallery-lightbox");
-  const lightboxImg = document.getElementById("gallery-lightbox-img");
-  if (!lightbox || !lightboxImg) return;
-
-  document.querySelectorAll(".gallery-item").forEach(item => {
-    item.addEventListener("click", () => {
-      const img = item.querySelector("img");
-      if (img) {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add("open");
-        document.body.style.overflow = "hidden";
-      }
-    });
-  });
-
-  const closeLightbox = () => { lightbox.classList.remove("open"); document.body.style.overflow = ""; };
-  lightbox.querySelector(".gallery-lightbox-close").addEventListener("click", closeLightbox);
-  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
 }
 
 /* Modals */

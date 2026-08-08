@@ -93,6 +93,7 @@
           <li><a href="#services">Servicii</a></li>
           <li><a href="#memberships">Abonamente</a></li>
           <li><a href="#masaj-catalog">Prețuri Masaj</a></li>
+          <li><a href="#galerie">Galerie Foto</a></li>
           <li><a href="#instructors">Echipă & Eva</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -125,6 +126,7 @@
       <li><a href="#services">Servicii</a></li>
       <li><a href="#memberships">Abonamente</a></li>
       <li><a href="#masaj-catalog">Prețuri Masaj</a></li>
+      <li><a href="#galerie">Galerie Foto</a></li>
       <li><a href="#instructors">Echipă & Eva</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -150,8 +152,11 @@
           <span class="eyebrow-label hero-eyebrow">BLOOM STUDIO • CLUJ-NAPOCA</span>
           <h1 class="hero-title font-serif">
             Nu e doar mișcare. <br />
-            <span class="highlight-sage">E resetul tău</span> <span class="highlight-terracotta">zilnic.</span> 🤍
+            <span class="highlight-sage">E resetul tău</span> <span class="highlight-terracotta">zilnic.</span>
           </h1>
+          <div class="hero-heart-divider">
+            <span class="hero-heart-icon">🤍</span>
+          </div>
           <p class="hero-subtitle">
             Uneori, cel mai bun lucru pe care îl poți face pentru corpul tău este să îi oferi o oră de pauză. Descoperă Reformer Pilates în grupuri restrânse (max 3 persoane) și tratamentele de masaj de la colega noastră, Eva.
           </p>
@@ -401,7 +406,23 @@
       </div>
     </section>
 
-    <!-- SECTION 7: INTERACTIVE BOOKING ENGINE — ÎN LUCRU -->
+    <!-- SECTION 7: FULL INTERACTIVE STUDIO GALLERY (16 PHOTOS) -->
+    <section class="section-padding bg-warm-white" id="galerie">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="eyebrow-label">GALERIE FOTO • BLOOM STUDIO</span>
+          <h2>Atmosfera Din Studio & Camera de Masaj</h2>
+          <p>O privire în spațiul nostru din Cluj-Napoca, Strada Aurel Vlaicu nr. 184.</p>
+        </div>
+
+        <!-- Rendered dynamically via app.js -->
+        <div id="gallery-dynamic-container" class="reveal-on-scroll">
+          <!-- Filter tabs & image cards rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: INTERACTIVE BOOKING ENGINE — ÎN LUCRU -->
     <section class="section-padding bg-ivory" id="booking-section">
       <div class="container">
         <div class="booking-section reveal-on-scroll">
@@ -507,7 +528,7 @@
       </div>
     </section>
 
-    <!-- SECTION 8: BENEFITS MATRIX -->
+    <!-- SECTION 9: BENEFITS MATRIX -->
     <section class="section-padding bg-warm-white" id="benefits">
       <div class="container">
         <div class="section-header reveal-on-scroll">
@@ -544,7 +565,7 @@
       </div>
     </section>
 
-    <!-- SECTION 9: TEAM / EVA -->
+    <!-- SECTION 10: TEAM / EVA -->
     <section class="section-padding bg-cream" id="instructors">
       <div class="container">
         <div class="section-header reveal-on-scroll">
@@ -559,7 +580,7 @@
       </div>
     </section>
 
-    <!-- SECTION 10: FIRST VISIT GUIDE -->
+    <!-- SECTION 11: FIRST VISIT GUIDE -->
     <section class="section-padding bg-ivory" id="first-visit">
       <div class="container">
         <div class="section-header reveal-on-scroll">
@@ -574,7 +595,7 @@
       </div>
     </section>
 
-    <!-- SECTION 11: FAQ ACCORDION -->
+    <!-- SECTION 12: FAQ ACCORDION -->
     <section class="section-padding bg-warm-white" id="faq">
       <div class="container">
         <div class="section-header reveal-on-scroll">
@@ -589,7 +610,7 @@
       </div>
     </section>
 
-    <!-- SECTION 12: TESTIMONIALS -->
+    <!-- SECTION 13: TESTIMONIALS -->
     <section class="section-padding bg-cream" id="testimonials">
       <div class="container">
         <div class="section-header reveal-on-scroll">
@@ -600,32 +621,6 @@
 
         <div class="testimonials-grid" id="testimonials-grid">
           <!-- Rendered via app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 13: INSTAGRAM GALLERY (@bloompilatescluj) -->
-    <section class="section-padding bg-primary" id="gallery">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="eyebrow-label">INSTAGRAM • @BLOOMPILATESCLUJ</span>
-          <h2>Atmosfera Din Studio & Camera de Masaj</h2>
-          <p>O privire în spațiul nostru din Cluj-Napoca, Strada Aurel Vlaicu nr. 184.</p>
-        </div>
-
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="assets/images/studio-reformer-arches.jpg" alt="Sala Reformer Pilates Bloom Studio Cluj" />
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/studio-lounge.jpg" alt="Zona de Recepție Bloom Studio Cluj" />
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/studio-mat-room.jpg" alt="Sala Mat Pilates Bloom Studio Cluj" />
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/studio-changing-room.jpg" alt="Vestiar Bloom Studio Cluj" />
-          </div>
         </div>
       </div>
     </section>
@@ -744,6 +739,7 @@
             <li><a href="#services">Servicii</a></li>
             <li><a href="#memberships">Abonamente</a></li>
             <li><a href="#masaj-catalog">Prețuri Masaj</a></li>
+            <li><a href="#galerie">Galerie Foto</a></li>
             <li><a href="#instructors">Echipă & Eva</a></li>
           </ul>
         </div>
@@ -786,10 +782,15 @@
     </div>
   </footer>
 
-  <!-- GALLERY LIGHTBOX -->
+  <!-- ENHANCED GALLERY LIGHTBOX MODAL -->
   <div class="gallery-lightbox" id="gallery-lightbox">
-    <button class="gallery-lightbox-close" aria-label="Închide galeria">&times;</button>
-    <img id="gallery-lightbox-img" src="" alt="" />
+    <button class="gallery-lightbox-close" id="lightbox-close" aria-label="Închide galeria">&times;</button>
+    <button class="gallery-lightbox-nav prev" id="lightbox-prev" aria-label="Fotografia anterioară">&lsaquo;</button>
+    <div class="gallery-lightbox-content">
+      <img id="gallery-lightbox-img" src="" alt="" />
+      <div class="gallery-lightbox-caption" id="gallery-lightbox-caption"></div>
+    </div>
+    <button class="gallery-lightbox-nav next" id="lightbox-next" aria-label="Fotografia următoare">&rsaquo;</button>
   </div>
 
   <!-- MODALS -->

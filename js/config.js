@@ -242,6 +242,25 @@ const BLOOM_CONFIG = {
       image: "assets/images/studio-reformer-arches.jpg",
       content: `<p>Antrenamentul pe Reformer Pilates la Bloom Studio Cluj combină alungirea musculară cu forța de bază. Am limitat numărul de participante la maxim 3 persoane pe clasă.</p>`
     }
+  ],
+
+  gallery: [
+    { id: 1, src: "assets/images/gallery/bloom-gallery-1.jpg", category: "reformer", title: "Aparate Reformer Allegro 2", caption: "Sala principală de Reformer Pilates Bloom Studio Cluj" },
+    { id: 2, src: "assets/images/gallery/bloom-gallery-2.jpg", category: "lounge", title: "Zona de Recepție & Relaxare", caption: "Zona de acces și lounge pentru cliente" },
+    { id: 3, src: "assets/images/gallery/bloom-gallery-3.jpg", category: "mat", title: "Sala Mat Pilates", caption: "Echipamente și accesorii pentru exerciții la saltea" },
+    { id: 4, src: "assets/images/gallery/bloom-gallery-4.jpg", category: "reformer", title: "Studio Reformer — Perspectivă Arcuri", caption: "Aparate profesionale Balanced Body®" },
+    { id: 5, src: "assets/images/gallery/bloom-gallery-5.jpg", category: "masaj", title: "Camera Dedicată Masaj (Eva)", caption: "Sanctuarul de relaxare și terapie corporală" },
+    { id: 6, src: "assets/images/gallery/bloom-gallery-6.jpg", category: "detalii", title: "Arcade Scandinave & Design Cald", caption: "Lumină naturală și detalii arhitecturale" },
+    { id: 7, src: "assets/images/gallery/bloom-gallery-7.jpg", category: "reformer", title: "Cadru Reformer & Aliniament Postural", caption: "Pregătit pentru ședințe individuale și de grup" },
+    { id: 8, src: "assets/images/gallery/bloom-gallery-8.jpg", category: "lounge", title: "Vestiar & Confort Personal", caption: "Spațiu intim pentru schimbare și relaxare" },
+    { id: 9, src: "assets/images/gallery/bloom-gallery-9.jpg", category: "masaj", title: "Tratamente Terapeutice & Drenaj", caption: "Drenaj limfatic brazilian și masaj anticelulitic" },
+    { id: 10, src: "assets/images/gallery/bloom-gallery-10.jpg", category: "reformer", title: "Perspectivă Reformer Studio", caption: "Grupuri de maxim 3 persoane per clasă" },
+    { id: 11, src: "assets/images/gallery/bloom-gallery-11.jpg", category: "reformer", title: "Set-up Individual Reformer", caption: "Atenție personalizată pe fiecare mișcare" },
+    { id: 12, src: "assets/images/gallery/bloom-gallery-12.jpg", category: "masaj", title: "Cameră Masaj de Relaxare", caption: "Atmosferă caldă pentru eliminarea stresului" },
+    { id: 13, src: "assets/images/gallery/bloom-gallery-13.jpg", category: "detalii", title: "Colț de Liniște", caption: "Pauza ta zilnică de la agitația orașului" },
+    { id: 14, src: "assets/images/gallery/bloom-gallery-14.jpg", category: "mat", title: "Accesorii Mat Pilates & Benzi", caption: "Inele Pilates, benzi elastice și mingi" },
+    { id: 15, src: "assets/images/gallery/bloom-gallery-15.jpg", category: "masaj", title: "Uleiuri Terapeutice & Produse Premium", caption: "Produse naturale pentru îngrijire și masaj" },
+    { id: 16, src: "assets/images/gallery/bloom-gallery-16.jpg", category: "lounge", title: "Vedere Ansamblu Studio Bloom", caption: "Cluj-Napoca, Strada Aurel Vlaicu nr. 184" }
   ]
 };
 
