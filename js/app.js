@@ -244,7 +244,7 @@ function initGlobalButtonListeners() {
     const massagePkgBtn = e.target.closest("[data-book-massage]");
     if (massagePkgBtn) {
       const packageName = massagePkgBtn.getAttribute("data-book-massage");
-      const encodedMsg = encodeURIComponent(`Bună Eva! Doresc să mă programez la: ${packageName} la Bloom Studio.`);
+      const encodedMsg = encodeURIComponent(`Bună ziua! Doresc să mă programez la: ${packageName} la Bloom Studio.`);
       window.open(`https://wa.me/40744229230?text=${encodedMsg}`, "_blank");
     }
 

@@ -81,7 +81,7 @@ const BLOOM_CONFIG = {
       title: "Masaj",
       subtitle: "Relaxare • Drenaj Limfatic • Decontractare",
       shortDesc: "Cameră special amenajată dedicată stării tale de bine. Tratamente de relaxare, drenaj limfatic și decontractare musculară.",
-      fullDesc: "Fie că îți dorești un moment de relaxare, decontractare musculară sau stimularea drenajului limfatic, colega noastră Eva te așteaptă într-un spațiu liniștit.",
+      fullDesc: "Fie că îți dorești un moment de relaxare, decontractare musculară sau stimularea drenajului limfatic, te așteptăm într-un spațiu liniștit dedicat stării tale de bine.",
       benefits: ["Reducerea stresului", "Drenaj limfatic", "Decontractare musculară", "Circulație îmbunătățită", "Relaxare profundă"],
       duration: "30 - 60 Min",
       tag: "Wellness",
@@ -140,12 +140,12 @@ const BLOOM_CONFIG = {
     }
   },
 
-  // Massage Catalog (Eva) — Keep existing
+  // Massage Catalog
   massageCatalog: {
-    therapist: "Eva",
+    therapist: "Masaj & Terapie",
     phone: "0744 229 230",
     phoneTel: "tel:+40744229230",
-    introText: "Colega noastră, Eva (0744 229 230), te așteaptă cu drag într-un spațiu liniștit dedicat stării tale de bine.",
+    introText: "Te așteptăm cu drag într-un spațiu liniștit dedicat stării tale de bine. Programări masaj / WhatsApp: 0744 229 230.",
     individualServices: [
       { name: "Masaj de Relaxare", desc: "Ideal pentru reducerea stresului după o zi lungă și obositoare.", duration: "60 min", price: "150 RON" },
       { name: "Masaj Anticelulitic cu Bambus", desc: "Ajută la îmbunătățirea circulației sangvine și la reducerea celulitei.", duration: "60 min", price: "150 RON" },
@@ -166,10 +166,10 @@ const BLOOM_CONFIG = {
   // Team & Instructors
   instructors: [
     {
-      name: "Eva",
-      role: "Specialist Terapii prin Masaj & Recuperare",
+      name: "Masaj & Terapie",
+      role: "Specialist Masaj & Recuperare",
       certification: "Tehnician Maseur Acreditat • Masaj Terapeutic & Limfatic",
-      bio: "Eva te așteaptă în camera de masaj de la Bloom Studio cu tratamente de relaxare, drenaj limfatic brazilian, masaj anticelulitic cu bambus, decontractare musculară și masaj facial.",
+      bio: "Te așteptăm în camera de masaj de la Bloom Studio cu tratamente de relaxare, drenaj limfatic brazilian, masaj anticelulitic cu bambus, decontractare musculară și masaj facial.",
       image: "assets/images/studio-lounge.jpg",
       social: "@bloompilatescluj",
       phoneDirect: "0744 229 230"
@@ -195,7 +195,7 @@ const BLOOM_CONFIG = {
     {
       clientName: "Clientă Masaj Bloom",
       membership: "Drenaj Limfatic Brazilian",
-      quote: "Camera de masaj oferă un sanctuar liniștit. Masajul limfatic brazilian oferit de Eva este de departe cel mai eficient tratament pe care l-am încercat în Cluj.",
+      quote: "Camera de masaj oferă un sanctuar liniștit. Masajul limfatic brazilian oferit la Bloom este de departe cel mai eficient tratament pe care l-am încercat în Cluj.",
       highlight: "Rezultate vizibile și stare de bine"
     },
     {
@@ -230,7 +230,7 @@ const BLOOM_CONFIG = {
       date: "August 2026",
       readTime: "4 min lectură",
       image: "assets/images/studio-lounge.jpg",
-      content: `<p>Uneori, cel mai bun lucru pe care îl poți face pentru corpul tău este să îi oferi o oră de pauză. De acum, te poți programa la masaj în cadrul studioului nostru Bloom Studio din Cluj-Napoca!</p><p>Colega noastră, <strong>Eva (0744 229 230)</strong>, te așteaptă într-un spațiu liniștit, dedicat stării tale de bine.</p>`
+      content: `<p>Uneori, cel mai bun lucru pe care îl poți face pentru corpul tău este să îi oferi o oră de pauză. De acum, te poți programa la masaj în cadrul studioului nostru Bloom Studio din Cluj-Napoca!</p><p>Te așteptăm într-un spațiu liniștit, dedicat stării tale de bine. Programări masaj / WhatsApp: <strong>0744 229 230</strong>.</p>`
     },
     {
       id: "reformer-pilates-cluj",
@@ -249,7 +249,7 @@ const BLOOM_CONFIG = {
     { id: 2, src: "assets/images/gallery/bloom-gallery-2.jpg", category: "lounge", title: "Zona de Recepție & Relaxare", caption: "Zona de acces și lounge pentru cliente" },
     { id: 3, src: "assets/images/gallery/bloom-gallery-3.jpg", category: "mat", title: "Sala Mat Pilates", caption: "Echipamente și accesorii pentru exerciții la saltea" },
     { id: 4, src: "assets/images/gallery/bloom-gallery-4.jpg", category: "reformer", title: "Studio Reformer — Perspectivă Arcuri", caption: "Aparate profesionale Balanced Body®" },
-    { id: 5, src: "assets/images/gallery/bloom-gallery-5.jpg", category: "masaj", title: "Camera Dedicată Masaj (Eva)", caption: "Sanctuarul de relaxare și terapie corporală" },
+    { id: 5, src: "assets/images/gallery/bloom-gallery-5.jpg", category: "masaj", title: "Camera Dedicată Masaj", caption: "Sanctuarul de relaxare și terapie corporală" },
     { id: 6, src: "assets/images/gallery/bloom-gallery-6.jpg", category: "detalii", title: "Arcade Scandinave & Design Cald", caption: "Lumină naturală și detalii arhitecturale" },
     { id: 7, src: "assets/images/gallery/bloom-gallery-7.jpg", category: "reformer", title: "Cadru Reformer & Aliniament Postural", caption: "Pregătit pentru ședințe individuale și de grup" },
     { id: 8, src: "assets/images/gallery/bloom-gallery-8.jpg", category: "lounge", title: "Vestiar & Confort Personal", caption: "Spațiu intim pentru schimbare și relaxare" },
