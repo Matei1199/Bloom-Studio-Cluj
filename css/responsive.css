@@ -189,3 +189,34 @@
     width: 95%;
   }
 }
+
+/* Pricing Tables Responsive */
+@media (max-width: 1024px) {
+  .pricing-table {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .service-subsection-grid,
+  .service-subsection-grid.reversed {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 2rem;
+  }
+  .service-subsection-img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-table {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-table {
+    grid-template-columns: 1fr 1fr;
+  }
+}
