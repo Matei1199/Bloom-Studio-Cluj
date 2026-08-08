@@ -1447,25 +1447,54 @@
   color: var(--sage-dark);
 }
 
-/* IN LUCRU BADGE */
+/* IN LUCRU BADGE & SECTION DISABLE */
 .in-lucru-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background-color: #FFF3E0;
   color: #E65100;
-  padding: 0.5rem 1.25rem;
+  padding: 0.6rem 1.5rem;
   border-radius: var(--radius-pill);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   border: 1px solid #FFCC80;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(230, 81, 0, 0.1);
 }
 
 .in-lucru-badge::before {
   content: '⚠';
+}
+
+/* DISABLE ALL INTERACTION IN UNDER CONSTRUCTION SECTIONS */
+.booking-section,
+.section-in-lucru {
+  position: relative;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+.booking-section .booking-services-grid,
+.booking-section .booking-form-grid,
+.booking-section .booking-nav-buttons,
+.booking-section .booking-wizard-steps,
+.booking-section button,
+.booking-section input,
+.booking-section select,
+.booking-section textarea,
+.booking-section .booking-service-card {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
+
+.booking-section .booking-services-grid,
+.booking-section .booking-form-grid,
+.booking-section .booking-nav-buttons {
+  opacity: 0.55 !important;
+  filter: grayscale(20%);
 }
 
 /* PRICING CATEGORY TABS */
