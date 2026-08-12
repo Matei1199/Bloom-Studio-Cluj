@@ -7,11 +7,11 @@ const BLOOM_CONFIG = {
   studio: {
     name: "Bloom Studio",
     tagline: "Move Better. Feel Better. Bloom Every Day.",
-    brandQuote: "Bloom este locul în care vii atunci când simți nevoia să iei o pauză de la agitația de zi cu zi.",
+    brandQuote: "Bloom Studio este locul în care vii atunci când simți nevoia să iei o pauză de la agitația de zi cu zi.",
     city: "Cluj-Napoca",
     region: "Cluj",
     country: "Romania",
-    address: "Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca",
+    address: "Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca (la granița dintre Mărăști și Someșeni, lângă Leroy Merlin)",
     phone: "0724 486 216",
     phoneTel: "tel:+40724486216",
     whatsappNumber: "40724486216",
@@ -39,7 +39,7 @@ const BLOOM_CONFIG = {
   priceLockRule: {
     enabled: true,
     title: "Preț blocat timp de 6 luni",
-    description: "Dacă îți faci abonamentul în prima lună, beneficiezi de același preț pentru următoarele 6 luni."
+    description: "Dacă îți faci abonament în prima lună, îți păstrăm prețul redus timp de 6 luni dacă reînnoiești abonamentul, lunar, înainte de data de expirare."
   },
 
   newsletter: {
@@ -55,8 +55,8 @@ const BLOOM_CONFIG = {
     {
       id: "reformer",
       title: "Pilates Reformer",
-      subtitle: "Grup • Duo • Individual",
-      shortDesc: "Antrenament pe aparate Reformer de ultimă generație. Disponibil în format grup (max 3 persoane), duo sau individual.",
+      subtitle: "Grup (max. 3) • Duo • Individual",
+      shortDesc: "Un antrenament complet pentru forță, mobilitate și control, pe aparate Reformer. Alege între ședințe în grupuri de maximum 3 persoane, duo sau individuale.",
       fullDesc: "Sesiunile noastre de Reformer combină aliniamentul postural cu stabilitatea abdominală profundă. Cu maxim 3 persoane pe clasă, instructorii noștri oferă ajustări individuale.",
       benefits: ["Forță și tonifiere", "Postură corectă", "Mobilitate", "Echilibru", "Control corporal", "Flexibilitate"],
       formats: ["Grup (max 3 persoane)", "Duo", "Individual"],
@@ -68,7 +68,7 @@ const BLOOM_CONFIG = {
       id: "mat",
       title: "Pilates Mat",
       subtitle: "Grup • Individual",
-      shortDesc: "Secvențe la saltea cu accesorii de rezistență pentru dezvoltarea forței funcționale și a flexibilității.",
+      shortDesc: "Pilates la saltea, cu accesorii, pentru un corp mai puternic și mai mobil. Lucrezi cu propria greutate și accesorii precum inelele și benzile elastice.",
       fullDesc: "Mat Pilates construiește forță de bază, control corporal și flexibilitate folosind greutatea proprie, inele de Pilates și benzi elastice.",
       benefits: ["Mobilitate", "Flexibilitate", "Control corporal", "Postură", "Forță", "Echilibru"],
       formats: ["Grup", "Individual"],
@@ -78,9 +78,9 @@ const BLOOM_CONFIG = {
     },
     {
       id: "massage",
-      title: "Masaj",
-      subtitle: "Relaxare • Drenaj Limfatic • Decontractare",
-      shortDesc: "Cameră special amenajată dedicată stării tale de bine. Tratamente de relaxare, drenaj limfatic și decontractare musculară.",
+      title: "Servicii de Masaj",
+      subtitle: "Relaxare • Limfatic • Anticelulitic • Decontracturant",
+      shortDesc: "Momente de relaxare și îngrijire pentru corp, într-un spațiu liniștit și intim. Alege masajul potrivit pentru tine, de la relaxare și decontracturare până la drenaj limfatic și tratamente anticelulitice.",
       fullDesc: "Fie că îți dorești un moment de relaxare, decontractare musculară sau stimularea drenajului limfatic, te așteptăm într-un spațiu liniștit dedicat stării tale de bine.",
       benefits: ["Reducerea stresului", "Drenaj limfatic", "Decontractare musculară", "Circulație îmbunătățită", "Relaxare profundă"],
       duration: "30 - 60 Min",
@@ -89,66 +89,84 @@ const BLOOM_CONFIG = {
     }
   ],
 
-  // OWNER-VERIFIED PRICING — Do NOT modify these values
+  // OWNER-VERIFIED PRICING
   pricing: {
-    matGrup: {
-      label: "Pilates Mat Grup",
-      sessions: [
-        { count: "1 ședință", price: "85 lei" },
-        { count: "4 ședințe", price: "300 lei" },
-        { count: "8 ședințe", price: "560 lei" },
-        { count: "12 ședințe", price: "620 lei" }
-      ]
-    },
-    matIndividual: {
-      label: "Pilates Mat Individual",
-      sessions: [
-        { count: "1 ședință", price: "110 lei" },
-        { count: "4 ședințe", price: "400 lei" },
-        { count: "8 ședințe", price: "680 lei" },
-        { count: "12 ședințe", price: "960 lei" }
-      ]
-    },
     reformerGrup: {
-      label: "Pilates Reformer Grup",
-      subtitle: "Maximum 3 persoane",
+      label: "Pilates Reformer Trio (Grup max 3)",
+      subtitle: "Maximum 3 persoane per clasă",
+      hasStrikethroughDiscount: true, // STRIKETHROUGH ONLY ON REFORMER 3 PERSOANE ABONAMENTE
       sessions: [
         { count: "1 ședință", price: "120 lei" },
-        { count: "4 ședințe", price: "440 lei" },
-        { count: "8 ședințe", price: "780 lei" },
-        { count: "12 ședințe", price: "900 lei" }
+        { count: "4 ședințe", price: "440 lei", oldPrice: "480 lei" },
+        { count: "8 ședințe", price: "800 lei", oldPrice: "960 lei" },
+        { count: "12 ședințe", price: "900 lei", oldPrice: "1440 lei" }
       ],
       highlight: true
     },
     reformerDuo: {
       label: "Pilates Reformer Duo",
+      subtitle: "2 persoane",
+      hasStrikethroughDiscount: false,
       sessions: [
         { count: "1 ședință", price: "170 lei" },
-        { count: "4 ședințe", price: "590 lei" },
-        { count: "8 ședințe", price: "1050 lei" },
-        { count: "12 ședințe", price: "1290 lei" }
+        { count: "4 ședințe", price: "600 lei" },
+        { count: "8 ședințe", price: "1040 lei" },
+        { count: "12 ședințe", price: "1320 lei" }
       ]
     },
     reformerIndividual: {
       label: "Pilates Reformer Individual",
+      subtitle: "Ședință Privată",
+      hasStrikethroughDiscount: false,
       sessions: [
         { count: "1 ședință", price: "190 lei" },
         { count: "4 ședințe", price: "700 lei" },
         { count: "8 ședințe", price: "1280 lei" },
-        { count: "12 ședințe", price: "1680 lei" }
+        { count: "12 ședințe", price: "1740 lei" }
+      ]
+    },
+    matGrup: {
+      label: "Pilates Mat Grup",
+      subtitle: "Maximum 3 persoane",
+      hasStrikethroughDiscount: false,
+      sessions: [
+        { count: "1 ședință", price: "90 lei" },
+        { count: "4 ședințe", price: "320 lei" },
+        { count: "8 ședințe", price: "560 lei" },
+        { count: "12 ședințe", price: "720 lei" }
+      ]
+    },
+    matIndividual: {
+      label: "Pilates Mat Individual",
+      subtitle: "Ședință Privată Mat",
+      hasStrikethroughDiscount: false,
+      sessions: [
+        { count: "1 ședință", price: "110 lei" },
+        { count: "4 ședințe", price: "420 lei" },
+        { count: "8 ședințe", price: "800 lei" },
+        { count: "12 ședințe", price: "1140 lei" }
+      ]
+    },
+    studentOffer: {
+      label: "Ofertă Studenți / Elevi",
+      subtitle: "Pilates Reformer (*cu carnetul de elev/student)",
+      hasStrikethroughDiscount: false,
+      sessions: [
+        { count: "1 ședință", price: "100 lei" },
+        { count: "4 ședințe", price: "320 lei" }
       ]
     }
   },
 
   // Massage Catalog
   massageCatalog: {
-    therapist: "Masaj & Terapie",
+    therapist: "Masaj",
     phone: "0744 229 230",
     phoneTel: "tel:+40744229230",
-    introText: "Te așteptăm cu drag într-un spațiu liniștit dedicat stării tale de bine. Programări masaj / WhatsApp: 0744 229 230.",
+    introText: "Te așteptăm cu drag într-un spațiu liniștit dedicat stării tale de bine. Programări masaj: 0744 229 230 Eva.",
     individualServices: [
       { name: "Masaj de Relaxare", desc: "Ideal pentru reducerea stresului după o zi lungă și obositoare.", duration: "60 min", price: "150 RON" },
-      { name: "Masaj Anticelulitic cu Bambus", desc: "Ajută la îmbunătățirea circulației sangvine și la reducerea celulitei.", duration: "60 min", price: "150 RON" },
+      { name: "Masaj Anticelulitic cu Bambus", desc: "Ajută la îmbunătăățirea circulației sangvine și la reducerea celulitei.", duration: "60 min", price: "150 RON" },
       { name: "Drenaj Limfatic Brazilian", desc: "Contribuie la detoxifierea organismului și stimularea sistemului limfatic.", duration: "60 min", price: "180 RON" },
       { name: "Masaj Pentru Decontractarea Mușchilor", desc: "Eficient pentru ameliorarea tensiunii musculare profunde și a durerilor.", duration: "40 min", price: "160 RON" },
       { name: "Masaj Facial", desc: "Masaj delicat conceput pentru a relaxa mușchii feței, a stimula circulația și a revitaliza tenul.", duration: "40 min", price: "130 RON" },
@@ -166,7 +184,7 @@ const BLOOM_CONFIG = {
   // Team & Instructors
   instructors: [
     {
-      name: "Masaj & Terapie",
+      name: "Eva",
       role: "Specialist Masaj & Recuperare",
       certification: "Tehnician Maseur Acreditat • Masaj Terapeutic & Limfatic",
       bio: "Te așteptăm în camera de masaj de la Bloom Studio cu tratamente de relaxare, drenaj limfatic brazilian, masaj anticelulitic cu bambus, decontractare musculară și masaj facial.",
@@ -177,7 +195,7 @@ const BLOOM_CONFIG = {
     {
       name: "Echipa Pilates Bloom",
       role: "Instructori Certificați Reformer & Mat",
-      certification: "[Certificări în curs de actualizare]",
+      certification: "Instructori Certificați",
       bio: "Echipa noastră de instructori este dedicată aliniamentului corect, siguranței mișcării și atenției individuale.",
       image: "assets/images/studio-reformer-arches.jpg",
       social: "@bloompilatescluj",
@@ -210,27 +228,28 @@ const BLOOM_CONFIG = {
     { title: "Ce Să Porți", text: "Haine lejere, elastice, care permit mișcarea liberă. Șosetele antiderapante sunt obligatorii pe aparatul Reformer." },
     { title: "Cât Durează O Clasă", text: "Clasele de Reformer și Mat durează 50 de minute. Masajele variază între 30 min și 60 min." },
     { title: "Politica de Anulare", text: "Vă rugăm să anunțați anularea sau reprogramarea cu cel puțin 24 de ore înainte de începerea ședinței." },
-    { title: "Locație & Programări", text: "Suntem situați pe Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca. Programările se pot face online pe site sau telefonic la 0724 486 216." }
+    { title: "Locație & Programări", text: "Suntem situați pe Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca (la granița dintre Mărăști și Someșeni, lângă Leroy Merlin). Programările se pot face online pe site sau telefonic." }
   ],
 
   faqs: [
+    { question: "Este doar pentru femei?", answer: "Nu, sunt bine veniți și bărbații." },
     { question: "Cum mă pot programa la masaj la Bloom Studio Cluj?", answer: "Te poți programa direct prin formularul de pe site sau o poți contacta pe colega noastră, Eva, la numărul de telefon / WhatsApp: 0744 229 230." },
     { question: "Ce servicii de masaj sunt disponibile în studio?", answer: "Oferim Masaj de Relaxare (150 RON), Masaj Anticelulitic cu Bambus (150 RON), Drenaj Limfatic Brazilian (180 RON), Masaj de Decontractare Mușchi (160 RON), Masaj Facial (130 RON) și Peeling Corporal (100 RON), plus pachete promoționale avantajoase." },
     { question: "Pot veni la Reformer Pilates dacă nu am mai făcut niciodată?", answer: "Da! Clasele noastre sunt concepute pentru toate nivelurile. Grupele restrânse de maxim 3 persoane permit instructorului să îți ofere atenție individuală." },
-    { question: "Unde este situat studioul Bloom în Cluj-Napoca?", answer: "Studioul nostru este situat pe Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca." },
-    { question: "Câte persoane sunt într-o clasă de Reformer?", answer: "Clasele de Pilates Reformer Grup sunt limitate la maxim 3 persoane. Oferim și opțiuni Duo și Individual." }
+    { question: "Unde este situat studioul Bloom în Cluj-Napoca?", answer: "Studioul nostru este situat pe Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca (la granița dintre cartierele Mărăști și Someșeni, lângă Leroy Merlin)." },
+    { question: "Câte persoane sunt într-o clasă de Reformer?", answer: "Clasele de Pilates Reformer Grup sunt limitate la maxim 3 persoane. Oferim și opțiuni Duo, Individuale și Oferte speciale pentru Studenți / Elevi." }
   ],
 
   blogPosts: [
     {
       id: "masaj-cluj-ghid",
-      category: "Masaj & Terapie",
+      category: "Masaj",
       title: "Masaj în Cluj-Napoca: Descoperă Serviciile și Pachetele Promoționale la Bloom Studio",
       excerpt: "De la masajul de relaxare și drenajul limfatic brazilian până la masajul facial și decontractant.",
       date: "August 2026",
       readTime: "4 min lectură",
       image: "assets/images/studio-lounge.jpg",
-      content: `<p>Uneori, cel mai bun lucru pe care îl poți face pentru corpul tău este să îi oferi o oră de pauză. De acum, te poți programa la masaj în cadrul studioului nostru Bloom Studio din Cluj-Napoca!</p><p>Te așteptăm într-un spațiu liniștit, dedicat stării tale de bine. Programări masaj / WhatsApp: <strong>0744 229 230</strong>.</p>`
+      content: `<p>Uneori, cel mai bun lucru pe care îl poți face pentru corpul tău este să îi oferi o oră de pauză. De acum, te poți programa la masaj în cadrul studioului nostru Bloom Studio din Cluj-Napoca!</p><p>Te așteptăm într-un spațiu liniștit, dedicat stării tale de bine. Programări masaj: <strong>0744 229 230 Eva</strong>.</p>`
     },
     {
       id: "reformer-pilates-cluj",

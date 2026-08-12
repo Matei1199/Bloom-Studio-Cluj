@@ -55,8 +55,24 @@ function renderPricingTabs() {
 
   const p = window.BLOOM_CONFIG.pricing;
   const categories = [
-    { id: "mat", label: "Pilates Mat", items: [{ data: p.matGrup, sub: "Grup" }, { data: p.matIndividual, sub: "Individual" }] },
-    { id: "reformer", label: "Pilates Reformer", items: [{ data: p.reformerGrup, sub: "Grup (max 3)" }, { data: p.reformerDuo, sub: "Duo" }, { data: p.reformerIndividual, sub: "Individual" }] }
+    { 
+      id: "reformer", 
+      label: "Pilates Reformer", 
+      items: [
+        { data: p.reformerGrup, sub: "Grup (max 3)" }, 
+        { data: p.reformerDuo, sub: "Duo" }, 
+        { data: p.reformerIndividual, sub: "Individual" }
+      ],
+      extra: p.studentOffer
+    },
+    { 
+      id: "mat", 
+      label: "Pilates Mat", 
+      items: [
+        { data: p.matGrup, sub: "Grup" }, 
+        { data: p.matIndividual, sub: "Individual" }
+      ] 
+    }
   ];
 
   const tabsHtml = categories.map((cat, idx) => 
@@ -65,14 +81,23 @@ function renderPricingTabs() {
 
   const panelsHtml = categories.map((cat, idx) => {
     const subsections = cat.items.map(sub => {
-      const cardsHtml = sub.data.sessions.map((s, si) => `
-        <div class="pricing-table-card ${si === 2 ? 'highlighted' : ''}">
-          <div class="sessions">${s.count}</div>
-          <div class="price">${s.price.replace(' lei', '')}</div>
-          <div class="price-unit">lei</div>
-          <button class="btn btn-secondary btn-sm" data-book-plan="${cat.id}-${sub.sub}" style="margin-top: auto;">Alege</button>
-        </div>
-      `).join('');
+      const cardsHtml = sub.data.sessions.map((s, si) => {
+        const hasStrikethrough = sub.data.hasStrikethroughDiscount && s.oldPrice;
+        const oldPriceMarkup = hasStrikethrough 
+          ? `<div style="text-decoration: line-through; text-decoration-color: #D97757; text-decoration-thickness: 2px; color: #888888; font-size: 0.95rem; font-weight: 500; margin-bottom: 0.1rem;">${s.oldPrice}</div>` 
+          : '';
+
+        return `
+          <div class="pricing-table-card ${si === 2 ? 'highlighted' : ''}">
+            <div class="sessions">${s.count}</div>
+            <div style="margin: 0.5rem 0 1rem 0;">
+              ${oldPriceMarkup}
+              <div class="price" style="${hasStrikethrough ? 'color: var(--sage-dark); font-weight: 700;' : ''}">${s.price.replace(' lei', '')} <span class="price-unit">lei</span></div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-book-plan="${cat.id}-${sub.sub}" style="margin-top: auto;">Programează-te</button>
+          </div>
+        `;
+      }).join('');
 
       return `
         <div class="pricing-category-label">${sub.data.label}${sub.data.subtitle ? ' — ' + sub.data.subtitle : ''}</div>
@@ -80,7 +105,25 @@ function renderPricingTabs() {
       `;
     }).join('<div style="margin-top: 2.5rem;"></div>');
 
-    return `<div class="pricing-category ${idx === 0 ? 'active' : ''}" id="pricing-cat-${cat.id}">${subsections}</div>`;
+    let extraHtml = '';
+    if (cat.extra) {
+      const studentCards = cat.extra.sessions.map(s => `
+        <div class="pricing-table-card">
+          <div class="sessions">${s.count}</div>
+          <div class="price" style="margin: 0.5rem 0 1rem 0;">${s.price.replace(' lei', '')} <span class="price-unit">lei</span></div>
+          <button class="btn btn-secondary btn-sm" data-book-plan="student-offer" style="margin-top: auto;">Programează-te</button>
+        </div>
+      `).join('');
+
+      extraHtml = `
+        <div style="margin-top: 2.5rem;">
+          <div class="pricing-category-label">🎓 ${cat.extra.label} — ${cat.extra.subtitle}</div>
+          <div class="pricing-table">${studentCards}</div>
+        </div>
+      `;
+    }
+
+    return `<div class="pricing-category ${idx === 0 ? 'active' : ''}" id="pricing-cat-${cat.id}">${subsections}${extraHtml}</div>`;
   }).join('');
 
   container.innerHTML = `<div class="pricing-tabs">${tabsHtml}</div>${panelsHtml}`;
