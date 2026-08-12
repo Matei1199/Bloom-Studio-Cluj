@@ -1617,16 +1617,7 @@
 }
 
 .brand-quote::before {
-  content: '"';
-  font-family: var(--font-heading);
-  font-size: 5rem;
-  color: var(--terracotta);
-  opacity: 0.3;
-  position: absolute;
-  top: -0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  line-height: 1;
+  display: none;
 }
 
 /* NEWSLETTER SECTION */
