@@ -85,7 +85,7 @@ const BLOOM_CONFIG = {
       benefits: ["Reducerea stresului", "Drenaj limfatic", "Decontractare musculară", "Circulație îmbunătățită", "Relaxare profundă"],
       duration: "30 - 60 Min",
       tag: "Wellness",
-      image: "assets/images/studio-lounge.jpg"
+      image: "assets/images/studio-massage-room.jpg"
     }
   ],
 
@@ -96,10 +96,10 @@ const BLOOM_CONFIG = {
       subtitle: "Maximum 3 persoane per clasă",
       hasStrikethroughDiscount: true, // STRIKETHROUGH ONLY ON REFORMER 3 PERSOANE ABONAMENTE
       sessions: [
-        { count: "1 ședință", price: "120 lei" },
-        { count: "4 ședințe", price: "440 lei", oldPrice: "480 lei" },
-        { count: "8 ședințe", price: "800 lei", oldPrice: "960 lei" },
-        { count: "12 ședințe", price: "900 lei", oldPrice: "1440 lei" }
+        { count: "1 ședință", price: "140 lei" },
+        { count: "4 ședințe", price: "520 lei", oldPrice: "560 lei" },
+        { count: "8 ședințe", price: "960 lei", oldPrice: "1120 lei" },
+        { count: "12 ședințe", price: "1320 lei", oldPrice: "1680 lei" }
       ],
       highlight: true
     },
@@ -108,10 +108,10 @@ const BLOOM_CONFIG = {
       subtitle: "2 persoane",
       hasStrikethroughDiscount: false,
       sessions: [
-        { count: "1 ședință", price: "170 lei" },
-        { count: "4 ședințe", price: "600 lei" },
-        { count: "8 ședințe", price: "1040 lei" },
-        { count: "12 ședințe", price: "1320 lei" }
+        { count: "1 ședință", price: "180 lei" },
+        { count: "4 ședințe", price: "680 lei" },
+        { count: "8 ședințe", price: "1280 lei" },
+        { count: "12 ședințe", price: "1800 lei" }
       ]
     },
     reformerIndividual: {
@@ -119,10 +119,10 @@ const BLOOM_CONFIG = {
       subtitle: "Ședință Privată",
       hasStrikethroughDiscount: false,
       sessions: [
-        { count: "1 ședință", price: "190 lei" },
-        { count: "4 ședințe", price: "700 lei" },
-        { count: "8 ședințe", price: "1280 lei" },
-        { count: "12 ședințe", price: "1740 lei" }
+        { count: "1 ședință", price: "200 lei" },
+        { count: "4 ședințe", price: "760 lei" },
+        { count: "8 ședințe", price: "1440 lei" },
+        { count: "12 ședințe", price: "1920 lei" }
       ]
     },
     matGrup: {
