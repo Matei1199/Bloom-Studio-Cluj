@@ -154,10 +154,11 @@ const BLOOM_CONFIG = {
 
   // Massage Catalog
   massageCatalog: {
-    therapist: "Masaj",
-    phone: "0724 486 216",
-    phoneTel: "tel:+40724486216",
-    introText: "Te așteptăm cu drag într-un spațiu liniștit dedicat stării tale de bine. Programările se fac la telefonul studioului sau pe WhatsApp: 0724 486 216.",
+    therapist: "Eva",
+    phone: "0744 229 230",
+    phoneTel: "tel:+40744229230",
+    whatsappNumber: "40744229230",
+    introText: "Te așteptăm cu drag într-un spațiu liniștit dedicat stării tale de bine. Programări masaj: 0744 229 230 Eva.",
     individualServices: [
       { name: "Masaj de Relaxare", desc: "Ideal pentru reducerea stresului după o zi lungă și obositoare.", duration: "60 min", price: "150 RON" },
       { name: "Masaj Anticelulitic cu Bambus", desc: "Ajută la îmbunătăățirea circulației sangvine și la reducerea celulitei.", duration: "60 min", price: "150 RON" },
@@ -184,7 +185,7 @@ const BLOOM_CONFIG = {
       bio: "Te așteptăm în camera de masaj de la Bloom Studio cu tratamente de relaxare, drenaj limfatic brazilian, masaj anticelulitic cu bambus, decontractare musculară și masaj facial.",
       image: "assets/images/studio-lounge.jpg",
       social: "@bloompilatescluj",
-      phoneDirect: "0724 486 216"
+      phoneDirect: "0744 229 230"
     },
     {
       name: "Echipa Pilates Bloom",
@@ -227,7 +228,7 @@ const BLOOM_CONFIG = {
 
   faqs: [
     { question: "Este doar pentru femei?", answer: "Nu, sunt bine veniți și bărbații." },
-    { question: "Cum mă pot programa la masaj la Bloom Studio Cluj?", answer: "Te poți programa direct prin formularul de pe site sau ne poți contacta la numărul de telefon / WhatsApp al studioului: 0724 486 216." },
+    { question: "Cum mă pot programa la masaj la Bloom Studio Cluj?", answer: "Te poți programa direct prin formularul de pe site sau o poți contacta pe colega noastră, Eva, la numărul de telefon / WhatsApp: 0744 229 230." },
     { question: "Ce servicii de masaj sunt disponibile în studio?", answer: "Oferim Masaj de Relaxare (150 RON), Masaj Anticelulitic cu Bambus (150 RON), Drenaj Limfatic Brazilian (180 RON), Masaj de Decontractare Mușchi (160 RON), Masaj Facial (130 RON) și Peeling Corporal (100 RON), plus pachete promoționale avantajoase." },
     { question: "Pot veni la Reformer Pilates dacă nu am mai făcut niciodată?", answer: "Da! Clasele noastre sunt concepute pentru toate nivelurile. Grupele restrânse de maxim 3 persoane permit instructorului să îți ofere atenție individuală." },
     { question: "Unde este situat studioul Bloom în Cluj-Napoca?", answer: "Studioul nostru este situat pe Strada Aurel Vlaicu nr. 184, bloc C1, scara 2, parter, Cluj-Napoca (la granița dintre cartierele Mărăști și Someșeni, lângă Leroy Merlin)." },
@@ -243,7 +244,7 @@ const BLOOM_CONFIG = {
       date: "August 2026",
       readTime: "4 min lectură",
       image: "assets/images/studio-lounge.jpg",
-      content: `<p>Uneori, cel mai bun lucru pe care îl poți face pentru corpul tău este să îi oferi o oră de pauză. De acum, te poți programa la masaj în cadrul studioului nostru Bloom Studio din Cluj-Napoca!</p><p>Te așteptăm într-un spațiu liniștit, dedicat stării tale de bine. Programări: <strong>0724 486 216 (Telefon / WhatsApp)</strong>.</p>`
+      content: `<p>Uneori, cel mai bun lucru pe care îl poți face pentru corpul tău este să îi oferi o oră de pauză. De acum, te poți programa la masaj în cadrul studioului nostru Bloom Studio din Cluj-Napoca!</p><p>Te așteptăm într-un spațiu liniștit, dedicat stării tale de bine. Programări masaj: <strong>0744 229 230 Eva</strong>.</p>`
     },
     {
       id: "reformer-pilates-cluj",

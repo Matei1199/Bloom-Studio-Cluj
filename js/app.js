@@ -93,7 +93,7 @@ function renderPricingTabs() {
               ${oldPriceMarkup}
               <div class="price" style="${hasStrikethrough ? 'color: var(--sage-dark); font-weight: 700;' : ''}">${s.price.replace(' lei', '')} <span class="price-unit">lei</span></div>
             </div>
-            <button class="btn btn-secondary btn-sm" data-book-plan="${cat.id}-${sub.sub}" style="margin-top: auto;">Programează-te</button>
+            <button class="btn btn-secondary btn-sm" data-book-plan="${sub.data.label} - ${s.count}" style="margin-top: auto;">Programează-te pe WhatsApp</button>
           </div>
         `;
       }).join('');
@@ -110,7 +110,7 @@ function renderPricingTabs() {
         <div class="pricing-table-card">
           <div class="sessions">${s.count}</div>
           <div class="price" style="margin: 0.5rem 0 1rem 0;">${s.price.replace(' lei', '')} <span class="price-unit">lei</span></div>
-          <button class="btn btn-secondary btn-sm" data-book-plan="student-offer" style="margin-top: auto;">Programează-te</button>
+          <button class="btn btn-secondary btn-sm" data-book-plan="${cat.extra.label} - ${s.count}" style="margin-top: auto;">Programează-te pe WhatsApp</button>
         </div>
       `).join('');
 
@@ -155,7 +155,7 @@ function renderMassageCatalog() {
         </div>
         <div class="massage-card-meta"><span>⏱ ${item.duration}</span></div>
         <p class="massage-card-desc">${item.desc}</p>
-        <button class="btn btn-secondary btn-sm" data-discover-massage="${item.name}">Descoperă serviciul</button>
+        <button class="btn btn-secondary btn-sm" data-discover-massage="${item.name}">Programează-te pe WhatsApp</button>
       </div>
     `).join('');
   }
@@ -167,7 +167,7 @@ function renderMassageCatalog() {
         <h4 class="package-title">${pkg.name}</h4>
         <div class="package-price">${pkg.price}</div>
         <p class="package-desc">${pkg.desc}</p>
-        <button class="btn btn-terracotta btn-sm" data-book-massage="${pkg.name}">Rezervă Pachetul</button>
+        <button class="btn btn-terracotta btn-sm" data-book-massage="${pkg.name}">Rezervă pe WhatsApp</button>
       </div>
     `).join('');
   }
@@ -258,23 +258,28 @@ function initGalleryLightbox() {
 /* Global Button Interactivity Handler */
 function initGlobalButtonListeners() {
   document.addEventListener("click", (e) => {
+    // Massage Individual Service -> WhatsApp Eva (0744 229 230)
     const discoverBtn = e.target.closest("[data-discover-massage]");
     if (discoverBtn) {
-      const bookingSection = document.getElementById("booking-section");
-      if (bookingSection) bookingSection.scrollIntoView({ behavior: "smooth" });
+      const serviceName = discoverBtn.getAttribute("data-discover-massage");
+      const encodedMsg = encodeURIComponent(`Bună Eva! Doresc să mă programez la serviciul de masaj: ${serviceName} la Bloom Studio.`);
+      window.open(`https://wa.me/40744229230?text=${encodedMsg}`, "_blank");
     }
 
+    // Massage Package -> WhatsApp Eva (0744 229 230)
     const massagePkgBtn = e.target.closest("[data-book-massage]");
     if (massagePkgBtn) {
       const packageName = massagePkgBtn.getAttribute("data-book-massage");
-      const encodedMsg = encodeURIComponent(`Bună ziua! Doresc să mă programez la: ${packageName} la Bloom Studio.`);
-      window.open(`https://wa.me/40724486216?text=${encodedMsg}`, "_blank");
+      const encodedMsg = encodeURIComponent(`Bună Eva! Doresc să mă programez la pachetul de masaj: ${packageName} la Bloom Studio.`);
+      window.open(`https://wa.me/40744229230?text=${encodedMsg}`, "_blank");
     }
 
+    // Pilates Subscription / Session -> WhatsApp Studio (0724 486 216)
     const planBtn = e.target.closest("[data-book-plan]");
     if (planBtn) {
-      const bookingWidget = document.getElementById("booking-section");
-      if (bookingWidget) bookingWidget.scrollIntoView({ behavior: "smooth" });
+      const planName = planBtn.getAttribute("data-book-plan");
+      const encodedMsg = encodeURIComponent(`Bună ziua! Doresc să mă programez la Pilates (${planName}) la Bloom Studio.`);
+      window.open(`https://wa.me/40724486216?text=${encodedMsg}`, "_blank");
     }
   });
 }
