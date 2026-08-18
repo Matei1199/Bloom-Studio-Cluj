@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   initMobileMenu();
   renderPricingTabs();
-  renderPriceLockBanner();
   renderMassageCatalog();
   renderInstructors();
   renderGallery();
@@ -140,25 +139,6 @@ function renderPricingTabs() {
   });
 }
 
-/* Render 6-Month Price Retention Banner */
-function renderPriceLockBanner() {
-  const container = document.getElementById("price-lock-container");
-  if (!container || !window.BLOOM_CONFIG || !window.BLOOM_CONFIG.priceLockRule) return;
-  const rule = window.BLOOM_CONFIG.priceLockRule;
-  if (!rule.enabled) return;
-  container.innerHTML = `
-    <div class="price-lock-banner">
-      <div class="price-lock-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      </div>
-      <div class="price-lock-text">
-        <strong>${rule.title}</strong>
-        <p>${rule.description}</p>
-      </div>
-    </div>
-  `;
-}
-
 /* Render Official Massage Treatments & Packages */
 function renderMassageCatalog() {
   const containerInd = document.getElementById("massage-individual-grid");
@@ -288,7 +268,7 @@ function initGlobalButtonListeners() {
     if (massagePkgBtn) {
       const packageName = massagePkgBtn.getAttribute("data-book-massage");
       const encodedMsg = encodeURIComponent(`Bună ziua! Doresc să mă programez la: ${packageName} la Bloom Studio.`);
-      window.open(`https://wa.me/40744229230?text=${encodedMsg}`, "_blank");
+      window.open(`https://wa.me/40724486216?text=${encodedMsg}`, "_blank");
     }
 
     const planBtn = e.target.closest("[data-book-plan]");
