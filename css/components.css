@@ -305,7 +305,7 @@
   opacity: 1;
 }
 
-/* Delicate Warm Overlay (Keeps Photo Vibrant & Text Legible) */
+/* Soft Warm Background Overlay */
 .hero-bg-overlay {
   position: absolute;
   top: 0;
@@ -314,9 +314,9 @@
   height: 100%;
   background: linear-gradient(
     90deg, 
-    rgba(250, 247, 242, 0.68) 0%, 
-    rgba(250, 247, 242, 0.40) 45%, 
-    rgba(250, 247, 242, 0.12) 100%
+    rgba(250, 247, 242, 0.55) 0%, 
+    rgba(250, 247, 242, 0.20) 50%, 
+    rgba(250, 247, 242, 0.0) 100%
   );
   z-index: 2;
   pointer-events: none;
@@ -339,18 +339,31 @@
   width: 100%;
 }
 
+/* Frosted Editorial Glass Card for Flawless Contrast */
 .hero-content {
-  max-width: 580px;
+  max-width: 620px;
+  background: rgba(250, 247, 242, 0.90);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 3rem 2.75rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 48px rgba(45, 58, 36, 0.10);
 }
 
 .hero-eyebrow {
   margin-bottom: 1.25rem;
+  color: var(--primary-sage);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-size: 0.8125rem;
 }
 
 .hero-title {
   margin-bottom: 1.35rem;
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
-  line-height: 1.08;
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  line-height: 1.1;
+  color: var(--sage-dark);
 }
 
 .hero-title span.highlight-sage {
@@ -363,17 +376,24 @@
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-muted);
+  font-size: 1.05rem;
+  color: var(--sage-dark);
   margin-bottom: 2.25rem;
   line-height: 1.7;
+  font-weight: 450;
+  opacity: 0.95;
+}
+
+.hero-subtitle strong {
+  font-weight: 700;
+  color: var(--sage-dark);
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   flex-wrap: wrap;
 }
 
