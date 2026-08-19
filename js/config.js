@@ -88,57 +88,57 @@ const BLOOM_CONFIG = {
     reformerGrup: {
       label: "Pilates Reformer Trio (Grup max 3)",
       subtitle: "Maximum 3 persoane per clasă",
-      hasStrikethroughDiscount: true, // STRIKETHROUGH ONLY ON REFORMER 3 PERSOANE ABONAMENTE
+      hasStrikethroughDiscount: true,
       sessions: [
         { count: "1 ședință", price: "140 lei" },
-        { count: "4 ședințe", price: "520 lei", oldPrice: "560 lei" },
-        { count: "8 ședințe", price: "960 lei", oldPrice: "1120 lei" },
-        { count: "12 ședințe", price: "1320 lei", oldPrice: "1680 lei" }
+        { count: "4 ședințe", price: "440 lei", oldPrice: "520 lei" },
+        { count: "8 ședințe", price: "816 lei", oldPrice: "960 lei" },
+        { count: "12 ședințe", price: "1122 lei", oldPrice: "1320 lei" }
       ],
       highlight: true
     },
     reformerDuo: {
       label: "Pilates Reformer Duo",
       subtitle: "2 persoane",
-      hasStrikethroughDiscount: false,
+      hasStrikethroughDiscount: true,
       sessions: [
         { count: "1 ședință", price: "180 lei" },
-        { count: "4 ședințe", price: "680 lei" },
-        { count: "8 ședințe", price: "1280 lei" },
-        { count: "12 ședințe", price: "1800 lei" }
+        { count: "4 ședințe", price: "578 lei", oldPrice: "680 lei" },
+        { count: "8 ședințe", price: "1088 lei", oldPrice: "1280 lei" },
+        { count: "12 ședințe", price: "1530 lei", oldPrice: "1800 lei" }
       ]
     },
     reformerIndividual: {
       label: "Pilates Reformer Individual",
       subtitle: "Ședință Privată",
-      hasStrikethroughDiscount: false,
+      hasStrikethroughDiscount: true,
       sessions: [
         { count: "1 ședință", price: "200 lei" },
-        { count: "4 ședințe", price: "760 lei" },
-        { count: "8 ședințe", price: "1440 lei" },
-        { count: "12 ședințe", price: "1920 lei" }
+        { count: "4 ședințe", price: "646 lei", oldPrice: "760 lei" },
+        { count: "8 ședințe", price: "1224 lei", oldPrice: "1440 lei" },
+        { count: "12 ședințe", price: "1632 lei", oldPrice: "1920 lei" }
       ]
     },
     matGrup: {
       label: "Pilates Mat Grup",
       subtitle: "Maximum 3 persoane",
-      hasStrikethroughDiscount: false,
+      hasStrikethroughDiscount: true,
       sessions: [
         { count: "1 ședință", price: "90 lei" },
-        { count: "4 ședințe", price: "320 lei" },
-        { count: "8 ședințe", price: "560 lei" },
-        { count: "12 ședințe", price: "720 lei" }
+        { count: "4 ședințe", price: "272 lei", oldPrice: "320 lei" },
+        { count: "8 ședințe", price: "476 lei", oldPrice: "560 lei" },
+        { count: "12 ședințe", price: "612 lei", oldPrice: "720 lei" }
       ]
     },
     matIndividual: {
       label: "Pilates Mat Individual",
       subtitle: "Ședință Privată Mat",
-      hasStrikethroughDiscount: false,
+      hasStrikethroughDiscount: true,
       sessions: [
         { count: "1 ședință", price: "110 lei" },
-        { count: "4 ședințe", price: "420 lei" },
-        { count: "8 ședințe", price: "800 lei" },
-        { count: "12 ședințe", price: "1140 lei" }
+        { count: "4 ședințe", price: "357 lei", oldPrice: "420 lei" },
+        { count: "8 ședințe", price: "680 lei", oldPrice: "800 lei" },
+        { count: "12 ședințe", price: "969 lei", oldPrice: "1140 lei" }
       ]
     },
     studentOffer: {
